@@ -3,10 +3,10 @@
 **Page ID:** A02 / ADM-INST  
 **Route:** `/admin/institutions`  
 **Phase:** 1 — Admin page analysis/specifications  
-**Status:** Documented — Owner Approval Pending  
+**Status:** Owner Approved — Ready for implementation planning  
 **Priority:** P1  
 **Last updated:** 2026-11-02  
-**Owner approval:** Pending  
+**Owner approval:** Approved by owner on 2026-11-02  
 **Implementation:** Not started
 
 ## 1. Purpose
@@ -315,7 +315,7 @@ All tests are Not Run until implementation exists and execution evidence is reco
 2. Institution-type taxonomy and exact regulatory eligibility should be validated against authoritative Indian sources during data sourcing and reviewed before bulk import.
 3. Public profiles for institutions with no products should be published only when identity and official profile are verified and the profile provides useful directory value; otherwise keep them admin-only until ready.
 
-No institution bulk import, code implementation or public listing should begin until this specification and its source/verification policy are approved.
+Owner approval recorded on 2026-11-02. Bulk import and public listing remain subject to source verification and the applicable implementation/release gates.
 
 
 ## 19. Owner role-model update — 2026-11-02
