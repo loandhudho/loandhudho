@@ -2,7 +2,7 @@
 
 **Page ID:** A03 / ADM-CAT  
 **Route:** `/admin/loan-categories`  
-**Status:** Documented — Owner Approval Pending  
+**Status:** Owner Approved — Ready for implementation planning  
 **Priority:** P1  
 **Implementation:** Not started
 
@@ -156,4 +156,4 @@ Owner approves taxonomy and initial catalogue; role boundaries, IDs/hierarchy/lo
 3. Confirm public hierarchy normally stays no deeper than two levels.
 4. Native Hindi review is required before public release of Hindi/Romanized aliases.
 
-No implementation, bulk import or public category publication should begin until A03 and shared standards are approved.
+Owner approval recorded on 2026-11-02. Implementation, bulk import and public category publication remain subject to the relevant shared-standard and release gates.
