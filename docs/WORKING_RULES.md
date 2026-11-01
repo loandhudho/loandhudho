@@ -115,3 +115,8 @@ A page is Verified only when all P0/P1 acceptance criteria pass, required tests 
 ## 10. Owner decisions
 
 A page moves from Documented to Approved only after explicit owner confirmation. Ask one concise question at a time, only when the answer materially changes product behavior, risk, scope or implementation cost.
+
+
+## 11. Owner-defined admin roles
+
+The initial admin role model is defined in [Admin Authorization and Role Standard](./standards/authorization.md): Super Admin, Admin, SEO Manager, and Sales Executive / Support. This replaces provisional role labels in earlier drafts. Every page specification must use this role model and the permission boundaries in that standard. Role names alone never authorize an action; enforce effective permissions and record scope server-side. Lead/customer PII access remains disabled until the legal/compliance gate is approved.
