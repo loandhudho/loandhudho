@@ -36,10 +36,10 @@ Admin is analyzed before public frontend. Page documents are created during thei
 | A01 | Dashboard | [dashboard.md](./admin/dashboard.md) | Owner Approved | Authorization standard and metric definitions |
 | A02 | Institutions | [institutions.md](./admin/institutions.md) | Owner Approved | Institution data model and authorization standard |
 | A03 | Loan Categories | [loan-categories.md](./admin/loan-categories.md) | Owner Approved | Product-centric taxonomy and authorization boundaries |
-| A04 | Loan Products | [loan-products.md](./admin/loan-products.md) | Documented — Owner Approval Pending | Institutions and categories |
-| A05 | Rates and History | [rates.md](./admin/rates.md) | Documented — Owner Approval Pending | Products and source records |
-| A06 | Fees and Charges | [fees.md](./admin/fees.md) | Documented — Owner Approval Pending | Products, rates boundary and sources |
-| A07 | Eligibility Rules | [eligibility.md](./admin/eligibility.md) | Not Started | Products and fee/rate applicability boundaries |
+| A04 | Loan Products | [loan-products.md](./admin/loan-products.md) | Owner Approved | Institutions and categories |
+| A05 | Rates and History | [rates.md](./admin/rates.md) | Owner Approved | Products and source records |
+| A06 | Fees and Charges | [fees.md](./admin/fees.md) | Owner Approved | Products, rates boundary and sources |
+| A07 | Eligibility Rules | [eligibility.md](./admin/eligibility.md) | Documented — Owner Approval Pending | Products, rates and fees |
 | A08 | Offers | [offers.md](./admin/offers.md) | Not Started | Products, validity and sources |
 | A09 | Intents and Search Mappings | [intents.md](./admin/intents.md) | Not Started | Categories and bilingual taxonomy |
 | A10 | Landing Pages | [landing-pages.md](./admin/landing-pages.md) | Not Started | Intents/categories and SEO |
@@ -88,16 +88,17 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 6. Progress summary
 
 - Global rules: drafted; awaiting owner approval.
-- Page specs documented: 6 (A01 Dashboard, A02 Institutions, A03 Loan Categories, A04 Loan Products, A05 Rates and History and A06 Fees and Charges). A01–A03 are owner-approved; A04–A06 await owner approval.
-- Pages approved for coding: 3 (A01–A03); implementation remains gated by shared standards and dependencies.
+- Page specs documented: 7 (A01 Dashboard, A02 Institutions, A03 Loan Categories, A04 Loan Products, A05 Rates and History, A06 Fees and Charges and A07 Eligibility Rules). A01–A06 are owner-approved; A07 awaits owner approval.
+- Pages approved for coding: 6 (A01–A06); implementation remains gated by shared standards and dependencies.
 - Pages implemented and verified under this workflow: 0.
 - Lead management: deferred pending legal/compliance gate.
 
 ## 7. Current focus
 
-**Active page:** A07 — Eligibility Rules  
-**Current status:** A01 Dashboard, A02 Institutions and A03 Loan Categories owner-approved; A04 Loan Products, A05 Rates and History and A06 Fees and Charges documented — Owner Approval Pending.  
-**Next action:** Analyze and document A07 Eligibility Rules, keeping eligibility criteria separate from product identity, rates and fees. A04–A06 require owner approval before implementation.  
+**Active page:** A08 — Offers  
+**Current status:** A01–A06 owner-approved; A07 Eligibility Rules documented — Owner Approval Pending.  
+**Next action:** Analyze and document A08 Offers, keeping offer validity and promotional conditions separate from product identity, base rates, standard fees and eligibility rules.  
+  
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
 
@@ -109,3 +110,4 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-02 | Owner approved A01 Dashboard, A02 Institutions and A03 Loan Categories; documented A04 Loan Products with data contract, linked-record boundaries, lifecycle, workflows, tasks and 24 acceptance tests; set A05 as next focus. |
 | 2026-11-02 | Documented A05 Rates and History with product-linked rate model, conditional bands, floating-rate details, effective dating/history, source verification, bulk-import workflow, public display rules, 14 tasks and 28 acceptance tests; set A06 as next focus. |
 | 2026-11-02 | Adjusted proposed rate review cadence to a 90-day reminder / 180-day stale threshold with event-triggered checks; documented A06 Fees and Charges with 18 tasks and 30 acceptance tests; set A07 as next focus. |
+| 2026-11-02 | Owner approved A04 Loan Products, A05 Rates and History and A06 Fees and Charges; recorded approvals in each specification. Documented A07 Eligibility Rules with 16 tasks and 29 acceptance tests; set A08 Offers as next focus. |
