@@ -352,3 +352,15 @@ All common KPI and drill-down data must be permission- and scope-filtered server
 ## 20. Confirmed Admin operational authority — 2026-11-02
 
 The owner confirmed that Admin can add, edit, review, approve and publish institutions, loan products, rates, fees, eligibility data and offers. Dashboard review/publishing queues must therefore be available to Admin according to the effective permission set; do not assume that financial publication requires a separate Reviewer role or second-person approval. Super Admin alone defines role/permission structures and controlled system taxonomies. Keep source evidence, freshness warnings, version history and audit trails visible to authorized operators. This decision supersedes any earlier implication in this specification that Admin publication is only delegated or that a separate approver is mandatory.
+
+
+## 13. Owner-approved role model alignment — 2026-11-02
+
+The owner-approved four-role model supersedes the provisional Super Admin / Editor / Reviewer / Support-Analyst labels and role examples in earlier sections of this specification. Dashboard widgets and drill-downs must be permission-driven and align to these roles:
+
+- **Super Admin:** system-structure controls, role/permission structures, global configuration and full authorized operational oversight.
+- **Admin:** full day-to-day marketplace operations, including institution/product/rate/fee/eligibility/offer creation, review, approval and publication; cannot redefine system structures.
+- **SEO Manager:** editorial, SEO, landing-page and content analytics/workflows; cannot alter verified lender facts or financial source-of-truth data.
+- **Sales Executive / Support:** assigned-scope customer/support operations and approved product information; lead/customer PII remains disabled until the legal/compliance gate is passed.
+
+The common dashboard overview and role-specific widgets must be calculated from effective permissions and authorized scope, not hard-coded assumptions that an Editor submits and a separate Reviewer approves. Routine marketplace publication by Admin does not require a separate approver. Any dashboard role matrix or widget example elsewhere in this document is subordinate to this addendum and the shared authorization standard.
