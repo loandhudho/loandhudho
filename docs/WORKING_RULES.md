@@ -120,3 +120,8 @@ A page moves from Documented to Approved only after explicit owner confirmation.
 ## 11. Owner-defined admin roles
 
 The initial admin role model is defined in [Admin Authorization and Role Standard](./standards/authorization.md): Super Admin, Admin, SEO Manager, and Sales Executive / Support. This replaces provisional role labels in earlier drafts. Every page specification must use this role model and the permission boundaries in that standard. Role names alone never authorize an action; enforce effective permissions and record scope server-side. Lead/customer PII access remains disabled until the legal/compliance gate is approved.
+
+
+## 12. Confirmed Admin operational authority
+
+The owner confirmed on 2026-11-02 that Admin can perform all day-to-day marketplace operations, including adding, editing, reviewing, approving and publishing institution/bank records, loan products, rates, fees, eligibility data and offers. Admin's sole structural boundary is that Admin cannot define or change system structures: role types/definitions, permission definitions/templates, entity types, controlled option catalogues, status definitions or global security structure. Super Admin owns those structures. Do not impose mandatory second-person approval on routine financial-data publication; preserve evidence, validation, version history and audit logs. Optional maker-checker safeguards for selected high-risk changes require a separate future decision.
