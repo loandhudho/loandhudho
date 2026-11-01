@@ -1,6 +1,6 @@
 # LoanDhudho — Admin Authorization and Role Standard
 
-**Status:** Drafted from owner-provided role definitions; owner approval pending  
+**Status:** Role boundaries and Admin operational authority confirmed by owner; detailed implementation policy pending approval  
 **Last updated:** 2026-11-02  
 **Scope:** All admin routes, APIs, server actions, dashboards, data exports and future admin modules.
 
@@ -11,7 +11,7 @@ LoanDhudho will start with four named admin roles. This replaces the earlier pro
 | Role | Primary responsibility | Authority boundary |
 |---|---|---|
 | **Super Admin** | Owns system-level configuration and data structures | Can define controlled options, statuses, entity types, role definitions and permission templates. Highest administrative authority. |
-| **Admin** | Runs day-to-day application and marketplace operations | Can manage institutions, products, users and assign permissions from the approved permission catalogue. Cannot redefine system-level structures or grant Super Admin authority. |
+| **Admin** | Runs day-to-day application and marketplace operations | Has full day-to-day operational authority: can create, edit, review, approve, publish, unpublish and manage institutions, products, rates, fees, eligibility, offers and users, and assign existing permissions within the configured authority ceiling. Cannot define or change system-level structures, role definitions, permission definitions/templates or controlled catalogues, or grant Super Admin authority. |
 | **SEO Manager** | Owns public content and organic discovery | Can create, edit, optimize and manage content, SEO metadata, landing pages, blogs and public product/category pages, plus permitted page analytics. Does not manage financial source-of-truth records or user security. |
 | **Sales Executive / Support** | Handles customer-facing product support and sales operations | Can access permitted product pages, customer records, lead workflows and related analytics. Access to personal/lead data is conditional on the legal/compliance gate, consent and assigned scope. |
 
@@ -37,9 +37,9 @@ Authorization is evaluated server-side on every request and mutation. The UI onl
 | Define system options, entity types and status catalogues | Full | No | No | No |
 | Create/edit role definitions and permission templates | Full | No | No | No |
 | Manage global security/configuration policies | Full | Limited operational settings explicitly delegated | No | No |
-| Manage institutions and lender records | Full | Create/edit/manage within approved workflows | Read approved public-facing data only | Read product-facing information only |
-| Manage loan products and financial source records | Full | Create/edit/manage; review/publish according to delegated permissions | Edit presentation/content fields only; no source-of-truth rate/fee/eligibility changes | Read approved product information; no edits to financial facts |
-| Manage rates, fees and eligibility facts | Full | Operational management with evidence and review controls | No | No |
+| Manage institutions and lender records | Full | Full operational create/edit/review/approve/publish/manage authority | Read approved public-facing data only | Read product-facing information only |
+| Manage loan products and financial source records | Full | Full operational create/edit/review/approve/publish/manage authority, with source evidence and audit history | Edit presentation/content fields only; no source-of-truth rate/fee/eligibility changes | Read approved product information; no edits to financial facts |
+| Manage rates, fees and eligibility facts | Full | Full operational create/edit/review/approve/publish/manage authority with evidence, effective dates, history and audit controls | No | No |
 | Manage offers and promotions | Full | Operational management | Manage public copy/SEO fields only when separately permissioned | View approved offers and customer-facing details |
 | Create/edit/publish landing pages, blogs and guides | Full | Limited/optional only if separately granted | Full within content workflow | No |
 | Create/edit public product/category page content | Full | Operational facts; content fields only if granted | Full presentation/SEO content access; cannot alter verified lender facts | View published pages |
