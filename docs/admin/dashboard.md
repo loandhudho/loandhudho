@@ -74,7 +74,62 @@ Avoid vanity metrics. Every count must have a documented definition, date window
 | Active offers | Offers within validity window and published status | Timezone and end-date inclusivity must be defined |
 | Recent activity | Audited admin events in a selected period | Never expose secrets or unnecessary personal data |
 
-## 6. Functional requirements
+## 6. Dashboard content specification — recommended baseline
+
+The following is the product/UX recommendation for the first release. Keep the dashboard operational and action-oriented: prioritize queues and exceptions over large decorative charts. Do not add charts merely to fill space. The same common KPI definitions apply across roles; only permitted data scope and role-specific modules vary.
+
+### 6.1 Common overview — all roles
+
+**Top KPI cards (current state, not date-filtered):**
+
+| Display item | Definition / displayed fields | Interaction |
+|---|---|---|
+| Products pending review | Count of active product records in a review-required state; optionally show age of oldest item | Opens review queue filtered to pending products, scoped to user |
+| Stale financial data | Count of published rate/fee records past their configured verification threshold; show affected products/institutions count separately if reliable | Opens data-quality queue filtered to stale records |
+| Offers nearing expiry | Published offers within the configured warning window; show count and nearest expiry date | Opens offers list sorted by expiry |
+| Published loan products | Published products linked to active institutions and categories | Opens published products list |
+| Active institutions | Institutions with active status | Opens institutions list |
+
+Do not combine stale rates, stale fees and stale sources into one ambiguous number unless the underlying records are deduplicated and the label explains the unit. Prefer a primary stale-record count with a small breakdown by rates, fees and source verification.
+
+**Common sections below the KPI cards:**
+
+- **Needs attention:** a compact prioritized list of pending reviews, stale financial records and expiring offers. Each row should show entity, issue, age/due date, assigned owner (only if permitted), and a direct authorized action.
+- **Data quality snapshot:** counts of missing source URL, missing last-verified date, expired validity period, and incomplete required fields. Show only checks that have explicit validation rules.
+- **Recent activity:** latest permitted admin events with actor display name, action, entity, timestamp and outcome. Never include secrets, credentials, full lead data or unnecessary personal details.
+- **Last updated:** per-section refresh time and freshness/caching label; do not imply real-time updates if aggregates are cached.
+
+### 6.2 Role-specific modules
+
+| Role | Additional data items | Recommended chart or visualization | Primary actions |
+|---|---|---|---|
+| Super Admin | Active/disabled admin accounts; pending invitations; role distribution; failed sign-in/security events as counts; audit events by action; system data-quality totals across all authorized business records | 1. Admin activity trend (daily event count over selected period); 2. Data freshness by entity type (rates, fees, offers, institutions/products) as a horizontal bar; 3. Admin accounts by role as a small donut only when there are enough accounts to make it meaningful | Manage users/roles; inspect audit log; configure freshness thresholds; open system-wide data-quality queues |
+| Editor | Assigned drafts; records returned for correction; records missing required data/source evidence; edits awaiting review; own recently updated records | 1. My work by status (draft, returned, submitted, published) as a horizontal stacked bar; 2. My work updated over time as a compact trend only if the history is reliable | Continue draft; fix returned record; add source/verification details; submit for review |
+| Reviewer | Pending review count; oldest pending age; items due/overdue against configured SLA; approved/rejected counts; review decisions by entity type; workload assigned to reviewer | 1. Review queue age buckets (e.g. under 1 day, 1–3 days, over 3 days) as horizontal bars; 2. Review outcomes over selected period as a stacked bar; 3. Pending items by entity type | Open next item; approve/reject with reason; request correction; filter queue by age/type |
+| Support/Analyst | Read-only counts for assigned/supported scope; institution/product/offer publication status; stale-data exceptions requiring escalation; permitted system notices; recent non-sensitive operational events | 1. Publication coverage by category or institution only when scope and data completeness make comparison valid; otherwise use a sortable summary table rather than a chart | Search permitted records; view product/institution details; copy public reference/link; raise an internal escalation if that workflow is approved |
+
+Role-specific widgets must be driven by permissions, not merely a role-name check. A user may have a custom permission set or multiple roles; the effective permission set determines what appears.
+
+### 6.3 Chart rules and data contracts
+
+- Every chart must state its metric, period, unit, scope and last-updated time. Provide an accessible table/list equivalent.
+- Use line charts for time trends, horizontal bars for category/age comparisons, and stacked bars for workflow status. Use a donut only for a small, mutually exclusive composition such as admin role distribution; never use it for precise comparisons.
+- Default trend window: last 30 days, with 7-day and 90-day options where event history supports them. This date selector affects activity/trend widgets only, not current-state KPI cards.
+- Review-age buckets and stale-data age buckets must be configurable and consistently defined. Do not hardcode an SLA before the business owner approves one.
+- Never infer missing dates or freshness. Records without verification timestamps must be shown as “missing verification date,” not silently treated as fresh.
+- Do not show percentages without a defined denominator. Show “not enough data” rather than misleading percentages or empty charts.
+- Hide or replace a chart with a clear empty state when there are too few records or insufficient history.
+- All chart drill-downs must preserve filters and reapply server-side authorization.
+
+### 6.4 Explicit exclusions for the first release
+
+- No revenue, commission, conversion, lender approval-rate or ROI charts until the business model, event tracking and data definitions are approved.
+- No individual employee performance ranking or productivity leaderboard.
+- No lead-level personal data, borrower details, contact information or loan application information on the dashboard.
+- No real-time lender/API health chart unless integrations exist and expose verified health telemetry.
+- No predictive forecasts or AI-generated operational scores.
+
+## 7. Functional requirements
 
 - Aggregate counts from authoritative database state; do not hardcode dashboard numbers.
 - Display clear zero-data states for a new installation.
@@ -123,8 +178,8 @@ Dependencies:
 |---|---|---|---|---|
 | ADM-DASH-001 | P1 | Confirm dashboard audiences and role-specific visibility (hybrid model selected) | Owner decision | Resolved — Approved Direction |
 | ADM-DASH-002 | P1 | Approve KPI definitions, reporting period and timezone behavior | Owner decision | Resolved — priorities and split date behavior approved; timezone convention to be standardized globally |
-| ADM-DASH-003 | P1 | Define dashboard wireframe and responsive information hierarchy | 001, 002 | Not Started |
-| ADM-DASH-004 | P1 | Define aggregate query/data contracts and freshness calculations | Data governance | Not Started |
+| ADM-DASH-003 | P1 | Define dashboard wireframe and responsive information hierarchy | 001, 002 | Owner-reviewed — wireframe direction accepted; content specification documented |
+| ADM-DASH-004 | P1 | Define aggregate query/data contracts and freshness calculations | Data governance | In Progress — recommended dashboard data items and chart rules documented; schemas/thresholds pending |
 | ADM-DASH-005 | P1 | Specify empty/loading/error/partial-data states | 003, 004 | Not Started |
 | ADM-DASH-006 | P1 | Define drill-down routes and filter preservation | Admin page inventory | Not Started |
 | ADM-DASH-007 | P1 | Complete permission, privacy and audit threat review | Authorization standard | Not Started |
@@ -163,9 +218,9 @@ All tests remain Not Run until implementation exists and execution evidence is r
 - Lint, typecheck, relevant unit/integration tests, Playwright flows and production build pass.
 - Master tracker reflects actual status and remaining limitations.
 
-## 12. Open decisions for product owner
+## 13. Open decisions for product owner
 
 1. **First-screen priorities — approved:** (a) products pending review, (b) stale rates/fees/sources requiring verification, and (c) offers nearing expiry.
 2. **Date behavior — approved:** current operational totals are all-time/current-state; recent activity has an independent selectable date range; offer counts use offer validity dates. The business timezone convention will be defined in the shared settings standard.
 
-The hybrid role-visibility direction, three first-screen priorities and split date behavior are resolved. No implementation should begin until the remaining decisions are resolved and the page specification is approved.
+The hybrid role-visibility direction, three first-screen priorities, split date behavior and dashboard content recommendations are documented. The wireframe direction has been accepted. Remaining data contracts, freshness/SLA thresholds, permission mapping, UI states, drill-downs and security review must be completed before final owner approval. No implementation should begin until the page specification is approved.
