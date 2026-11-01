@@ -328,3 +328,8 @@ The owner-defined role model and permission boundaries are in [authorization.md]
 - **Sales Executive / Support:** read approved institution/product information needed for assigned customer support; no institution master-data mutations.
 
 All actions require server-side permission checks. Institution-type/status options are controlled system data owned by Super Admin, not free-text values or Admin-defined options.
+
+
+## 20. Confirmed Admin operational authority — 2026-11-02
+
+The owner confirmed that Admin can create, edit, review, approve and publish institution/bank records and related operational marketplace data, including loan products, rates, fees, eligibility and offers. The institution workflow must not require a separate Reviewer role or mandatory second-person approval for routine publication. Admin cannot redefine institution-type/status catalogues or any role, permission, entity-type or system-status structures; those remain Super Admin responsibilities. Retain official-source evidence, re-verification triggers, version history and audit logs. This decision supersedes earlier provisional workflow wording that separated Admin editing from approval/publishing authority.
