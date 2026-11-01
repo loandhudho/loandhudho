@@ -335,7 +335,7 @@ No live lender integration, automated scraping or personalized quote engine is i
 2. **Conditional rate records:** Confirm separate records for material lender-published amount, LTV, borrower-segment or credit-score bands, rather than collapsing them into one range.
 3. **Missing effective date:** Confirm a rate without a sourced effective-from date may remain draft/unverified but cannot be presented as current public data.
 4. **Public conditional display:** Confirm that where borrower conditions are unknown, LoanDhudho should show the lender's sourced conditional range with a clear caveat (or “conditions apply”), never automatically select the lowest rate.
-5. **Freshness threshold:** Approve or revise the proposed 30-day reminder / 45-day stale threshold for interest rates in the data-governance standard. Until approved, show verification age without treating the proposed threshold as policy.
+5. **Freshness threshold:** Approve or revise the proposed 90-day review reminder / 180-day stale threshold for interest rates in the data-governance standard. Rates are not presumed changed solely due to age; event-triggered re-verification applies. Until approved, show verification age without treating the proposed threshold as policy.
 6. **Bulk import:** Approve CSV-based bulk rate import for MVP, with preview, row-level validation, source references per claim, dry-run and explicit Admin publication.
 
 No rate import, bulk publication or code implementation is authorized by this draft. A04 remains owner-approval pending; this A05 document records its product relationship as a dependency and does not imply A04 approval.
