@@ -3,7 +3,7 @@
 **Page ID:** A14 / ADM-AUDIT  
 **Route:** `/admin/audit-logs`  
 **Priority:** P0 for secure admin launch  
-**Status:** Documented — Owner Approval Pending  
+**Status:** Owner Approved — policy-specific gates remain  
 **Implementation status:** Not Started  
 **Test status:** Not Run  
 **Last updated:** 2026-11-02
@@ -311,19 +311,23 @@ All tests are currently **Not Run**.
 - Runbooks, ownership, backup/restore and incident escalation are documented.
 - No unresolved P0 security/privacy blocker remains.
 
-## 18. Owner decisions required
+## 18. Owner decisions and recorded approvals
 
-1. **Event visibility:** Should Admin see all operational audit events by default, with security events restricted to Super Admin, or should Admin have broader security-event access? Recommendation: Super Admin sees all; Admin sees operational events and only explicitly granted security events.
-2. **Sensitive metadata:** Approve whether IP address and user-agent are collected at all. Recommendation: collect only for security-relevant events, restrict access, and set a specific retention period after privacy review.
-3. **Retention schedule:** Approve retention classes and durations for security/authentication, privileged access, financial mutations, editorial activity and diagnostics. Recommendation: do not choose durations until legal/security review confirms applicable obligations.
-4. **Export:** Should CSV export be in MVP? Recommendation: defer until search/detail access, scope, redaction and retention are verified; then allow bounded, permission-gated export.
-5. **Integrity approach:** Approve append-only database plus chained hashes and independently protected signed checkpoints as the initial integrity design, subject to security review.
-6. **Annotations:** Should investigators be able to add append-only case notes/acknowledgements? Recommendation: defer from MVP; preserve original events and add notes only as separate attributed events.
-7. **Audit pipeline failure policy:** Approve fail-closed behavior for privileged and financial mutations when durable audit capture is unavailable. Recommendation: yes; never silently accept an audit gap for critical actions.
-8. **Two-person controls:** Should any exceptional Super Admin actions (for example, retention reduction or integrity-key rotation) require two-person approval? Recommendation: security review to propose a narrow list; do not impose universal maker-checker on routine Admin operations.
+The owner responded, “I think yes for questions you asked,” accepting the recommendations recorded below. These decisions approve the A14 functional scope and control direction; they do not waive the explicitly retained legal, privacy, security or implementation gates.
+
+| # | Decision | Owner-approved direction | Remaining gate |
+|---:|---|---|---|
+| 1 | Event visibility | Super Admin can inspect all permitted audit events. Admin can inspect operational events; security events require an explicit permission grant. | Final permission keys/scopes in the authorization standard. |
+| 2 | Sensitive metadata | Collect IP address and user-agent only for security-relevant events, with restricted access and minimum necessary use. | Privacy review must approve purpose and retention before collection is enabled. |
+| 3 | Retention schedule | Use separate retention classes; do not select arbitrary durations before legal/security review. | Legal/security review must set durations, archive, backup expiry and legal-hold rules before production purge/expiry is enabled. |
+| 4 | Export | Defer CSV/JSONL export from MVP until search/detail access, scope, redaction and retention controls are verified; then allow bounded, permission-gated export. | Separate export enablement and field-set approval after control verification. |
+| 5 | Integrity approach | Approve append-only storage with chained hashes and independently protected signed checkpoints as the initial design, subject to security review. | Security design review and verification of key/checkpoint isolation. |
+| 6 | Annotations | Defer investigation notes/acknowledgements from MVP. If introduced later, they must be separate attributed append-only events. | Future scope decision; no annotation UI in MVP. |
+| 7 | Audit pipeline failure | Fail closed for privileged and financial mutations when durable audit capture is unavailable; never silently accept a critical audit gap. | Engineering must define and test the exact critical-action list and safe operational recovery. |
+| 8 | Two-person controls | No universal maker-checker. Security review may propose a narrow set of exceptional Super Admin actions requiring two-person approval. | Separate security/owner decision for any named actions; routine Admin publishing remains single-operator as already confirmed. |
 
 ## 19. Current status and next step
 
-A14 is documented for owner review. No implementation or tests have started. Retention schedule and export remain blocked pending explicit policy approval. A12 Leads remains deferred pending legal/compliance approval.
+A14 functional scope and recommended control direction are owner-approved. No implementation or tests have started. IP/user-agent collection remains disabled until privacy approval; retention durations and production purge remain blocked until legal/security approval; export remains deferred until access/redaction/retention controls are verified. Integrity design requires security review. A12 Leads remains deferred pending legal/compliance approval.
 
-**Recommended next action:** Owner reviews A14 and resolves the event visibility and metadata collection decisions first; shared authorization, API and security standards must be approved before implementation.
+**Recommended next action:** Proceed to A15 Settings specification. Shared authorization, API, security and privacy standards remain prerequisites before A14 implementation.
