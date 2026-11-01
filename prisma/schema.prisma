@@ -1,0 +1,357 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum InstitutionType {
+  BANK
+  SMALL_FINANCE_BANK
+  NBFC
+  OTHER
+}
+
+enum PublicationStatus {
+  DRAFT
+  IN_REVIEW
+  PUBLISHED
+  ARCHIVED
+}
+
+enum RateType {
+  FIXED
+  FLOATING
+  MIXED
+}
+
+enum RateUnit {
+  PER_ANNUM
+  PER_MONTH
+}
+
+enum ChargeType {
+  PROCESSING_FEE
+  DOCUMENTATION
+  LATE_PAYMENT
+  PREPAYMENT
+  FORECLOSURE
+  OTHER
+}
+
+enum ChargeBasis {
+  FIXED_AMOUNT
+  PERCENTAGE
+  RANGE
+  FORMULA
+}
+
+enum VerificationStatus {
+  UNVERIFIED
+  PENDING_REVIEW
+  VERIFIED
+  REJECTED
+}
+
+enum OfferStatus {
+  DRAFT
+  ACTIVE
+  EXPIRED
+  ARCHIVED
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  EDITOR
+  REVIEWER
+  SUPPORT
+  ANALYST
+}
+
+model FinancialInstitution {
+  id             String          @id @default(cuid())
+  name           String
+  slug           String          @unique
+  institutionType InstitutionType
+  officialWebsite String?
+  logoUrl        String?
+  description    String?
+  headquarters   String?
+  isActive       Boolean         @default(true)
+  products       LoanProduct[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@index([institutionType, isActive])
+  @@map("financial_institutions")
+}
+
+model LoanCategory {
+  id          String        @id @default(cuid())
+  parentId    String?
+  parent      LoanCategory? @relation("CategoryTree", fields: [parentId], references: [id], onDelete: SetNull)
+  children    LoanCategory[] @relation("CategoryTree")
+  name        String
+  slug        String        @unique
+  description String?
+  sortOrder   Int           @default(0)
+  isActive    Boolean       @default(true)
+  products    LoanProduct[]
+  intents     Intent[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([parentId, sortOrder])
+  @@map("loan_categories")
+}
+
+model LoanProduct {
+  id              String            @id @default(cuid())
+  institutionId   String
+  institution     FinancialInstitution @relation(fields: [institutionId], references: [id], onDelete: Restrict)
+  categoryId      String
+  category        LoanCategory      @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  name            String
+  slug            String            @unique
+  shortDescription String?
+  description     String?
+  applicationUrl  String?
+  minLoanAmount   Decimal?           @db.Decimal(18, 2)
+  maxLoanAmount   Decimal?           @db.Decimal(18, 2)
+  minTenureMonths Int?
+  maxTenureMonths Int?
+  status          PublicationStatus @default(DRAFT)
+  rates           RateOffer[]
+  fees            Fee[]
+  eligibilityRules EligibilityRule[]
+  documents       ProductDocument[]
+  offers          LoanOffer[]
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@index([institutionId, status])
+  @@index([categoryId, status])
+  @@map("loan_products")
+}
+
+model SourceRecord {
+  id             String             @id @default(cuid())
+  publisher      String?
+  sourceUrl      String
+  notes          String?
+  checkedAt      DateTime?
+  verification  VerificationStatus @default(UNVERIFIED)
+  rates          RateOffer[]
+  fees           Fee[]
+  eligibility    EligibilityRule[]
+  documents      ProductDocument[]
+  offers         LoanOffer[]
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+
+  @@index([verification, checkedAt])
+  @@map("source_records")
+}
+
+model RateOffer {
+  id                String             @id @default(cuid())
+  productId         String
+  product           LoanProduct        @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sourceId          String?
+  source            SourceRecord?      @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  rateType          RateType
+  rateUnit          RateUnit           @default(PER_ANNUM)
+  minRate           Decimal            @db.Decimal(7, 4)
+  maxRate           Decimal?           @db.Decimal(7, 4)
+  apr               Decimal?           @db.Decimal(7, 4)
+  effectiveFrom     DateTime
+  effectiveUntil    DateTime?
+  lastVerifiedAt    DateTime?
+  verification      VerificationStatus @default(UNVERIFIED)
+  status            PublicationStatus  @default(DRAFT)
+  notes             String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+
+  @@index([productId, status, effectiveFrom])
+  @@index([verification, lastVerifiedAt])
+  @@map("rate_offers")
+}
+
+model Fee {
+  id             String             @id @default(cuid())
+  productId      String
+  product        LoanProduct        @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sourceId       String?
+  source         SourceRecord?      @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  chargeType     ChargeType
+  basis          ChargeBasis
+  amount         Decimal?           @db.Decimal(18, 2)
+  minAmount      Decimal?           @db.Decimal(18, 2)
+  maxAmount      Decimal?           @db.Decimal(18, 2)
+  currency       String             @default("INR")
+  description    String?
+  effectiveFrom  DateTime?
+  effectiveUntil DateTime?
+  verification   VerificationStatus @default(UNVERIFIED)
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+
+  @@index([productId, chargeType])
+  @@map("fees")
+}
+
+model EligibilityRule {
+  id             String       @id @default(cuid())
+  productId      String
+  product        LoanProduct  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sourceId       String?
+  source         SourceRecord? @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  ruleKey        String
+  operator       String?
+  value          String
+  locale         String       @default("en")
+  caveat         String?
+  verification   VerificationStatus @default(UNVERIFIED)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([productId, ruleKey])
+  @@map("eligibility_rules")
+}
+
+model ProductDocument {
+  id           String        @id @default(cuid())
+  productId    String
+  product      LoanProduct   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sourceId     String?
+  source       SourceRecord? @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  name         String
+  description  String?
+  isRequired   Boolean       @default(true)
+  locale       String        @default("en")
+  createdAt    DateTime      @default(now())
+
+  @@index([productId, locale])
+  @@map("product_documents")
+}
+
+model LoanOffer {
+  id             String      @id @default(cuid())
+  productId      String
+  product        LoanProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sourceId       String?
+  source         SourceRecord? @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  title          String
+  description    String?
+  terms          String?
+  startAt        DateTime
+  endAt          DateTime
+  status         OfferStatus @default(DRAFT)
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  @@index([productId, status, startAt, endAt])
+  @@map("loan_offers")
+}
+
+model Intent {
+  id          String          @id @default(cuid())
+  categoryId  String
+  category    LoanCategory    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  key         String          @unique
+  description String?
+  keywords    IntentKeyword[]
+  pages       LandingPage[]
+  isActive    Boolean         @default(true)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@map("intents")
+}
+
+model IntentKeyword {
+  id          String   @id @default(cuid())
+  intentId    String
+  intent      Intent   @relation(fields: [intentId], references: [id], onDelete: Cascade)
+  locale      String
+  phrase      String
+  normalized  String
+  weight      Int      @default(1)
+  createdAt   DateTime @default(now())
+
+  @@unique([intentId, locale, normalized])
+  @@index([locale, normalized])
+  @@map("intent_keywords")
+}
+
+model LandingPage {
+  id              String   @id @default(cuid())
+  intentId        String?
+  intent          Intent?  @relation(fields: [intentId], references: [id], onDelete: SetNull)
+  locale          String
+  slug            String
+  title           String
+  metaTitle       String?
+  metaDescription String?
+  content         String?
+  status          PublicationStatus @default(DRAFT)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([locale, slug])
+  @@index([status, locale])
+  @@map("landing_pages")
+}
+
+model ContentPage {
+  id              String   @id @default(cuid())
+  locale          String
+  slug            String
+  title           String
+  excerpt         String?
+  content         String
+  metaTitle       String?
+  metaDescription String?
+  status          PublicationStatus @default(DRAFT)
+  publishedAt     DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([locale, slug])
+  @@index([status, publishedAt])
+  @@map("content_pages")
+}
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  name         String?
+  passwordHash String?
+  role         AdminRole @default(EDITOR)
+  isActive     Boolean   @default(true)
+  auditLogs    AuditLog[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@map("admin_users")
+}
+
+model AuditLog {
+  id          String    @id @default(cuid())
+  actorId     String?
+  actor       AdminUser? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  action      String
+  entityType  String
+  entityId    String
+  beforeData  Json?
+  afterData   Json?
+  ipAddress   String?
+  createdAt   DateTime  @default(now())
+
+  @@index([entityType, entityId, createdAt])
+  @@index([actorId, createdAt])
+  @@map("audit_logs")
+}
