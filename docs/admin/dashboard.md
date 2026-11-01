@@ -82,7 +82,8 @@ Avoid vanity metrics. Every count must have a documented definition, date window
 - Display last-refreshed time and explain whether figures are live, cached or delayed.
 - KPI drill-down preserves relevant filters.
 - Respect role-based data scope in both aggregate queries and destination pages.
-- Date filters use a consistent timezone convention and clearly label the selected period.
+- Date behavior follows the approved split: operational KPIs show current all-time state; recent activity has its own selectable date range; offers are evaluated using their validity dates.
+- Date/time calculations use the configured business timezone (to be finalized in the shared settings standard) and clearly label displayed periods.
 - Avoid exposing lead-level personal data or sensitive admin account data.
 - Quick actions must be permission-gated on server and client.
 - Dashboard must work on mobile, tablet and desktop in English/Hindi and light/dark themes.
@@ -121,7 +122,7 @@ Dependencies:
 | Task ID | Priority | Task | Dependency | Status |
 |---|---|---|---|---|
 | ADM-DASH-001 | P1 | Confirm dashboard audiences and role-specific visibility (hybrid model selected) | Owner decision | Resolved — Approved Direction |
-| ADM-DASH-002 | P1 | Approve KPI definitions, reporting period and timezone behavior | Owner decision | Partially Resolved — priorities approved; reporting behavior pending |
+| ADM-DASH-002 | P1 | Approve KPI definitions, reporting period and timezone behavior | Owner decision | Resolved — priorities and split date behavior approved; timezone convention to be standardized globally |
 | ADM-DASH-003 | P1 | Define dashboard wireframe and responsive information hierarchy | 001, 002 | Not Started |
 | ADM-DASH-004 | P1 | Define aggregate query/data contracts and freshness calculations | Data governance | Not Started |
 | ADM-DASH-005 | P1 | Specify empty/loading/error/partial-data states | 003, 004 | Not Started |
@@ -165,6 +166,6 @@ All tests remain Not Run until implementation exists and execution evidence is r
 ## 12. Open decisions for product owner
 
 1. **First-screen priorities — approved:** (a) products pending review, (b) stale rates/fees/sources requiring verification, and (c) offers nearing expiry.
-2. Should dashboard metrics default to **all-time current totals** with a selectable date range for activity, or should all widgets share one date filter?
+2. **Date behavior — approved:** current operational totals are all-time/current-state; recent activity has an independent selectable date range; offer counts use offer validity dates. The business timezone convention will be defined in the shared settings standard.
 
-The hybrid role-visibility direction and the three first-screen priorities are resolved. No implementation should begin until the remaining decisions are resolved and the page specification is approved.
+The hybrid role-visibility direction, three first-screen priorities and split date behavior are resolved. No implementation should begin until the remaining decisions are resolved and the page specification is approved.
