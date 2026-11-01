@@ -119,7 +119,7 @@ Dependencies:
 | Task ID | Priority | Task | Dependency | Status |
 |---|---|---|---|---|
 | ADM-DASH-001 | P1 | Confirm dashboard audiences and role-specific visibility (hybrid model selected) | Owner decision | Resolved — Approved Direction |
-| ADM-DASH-002 | P1 | Approve KPI definitions, reporting period and timezone behavior | Owner decision | Awaiting Decision |
+| ADM-DASH-002 | P1 | Approve KPI definitions, reporting period and timezone behavior | Owner decision | Partially Resolved — priorities approved; reporting behavior pending |
 | ADM-DASH-003 | P1 | Define dashboard wireframe and responsive information hierarchy | 001, 002 | Not Started |
 | ADM-DASH-004 | P1 | Define aggregate query/data contracts and freshness calculations | Data governance | Not Started |
 | ADM-DASH-005 | P1 | Specify empty/loading/error/partial-data states | 003, 004 | Not Started |
@@ -162,7 +162,7 @@ All tests remain Not Run until implementation exists and execution evidence is r
 
 ## 12. Open decisions for product owner
 
-1. **Which three priorities matter most on the first screen?** Suggested starting set: (a) products pending review, (b) stale rates/fees/sources, (c) expiring offers. Other candidates: institution/product totals, recent admin activity, search/content health.
+1. **First-screen priorities — approved:** (a) products pending review, (b) stale rates/fees/sources requiring verification, and (c) offers nearing expiry.
 2. Should dashboard metrics default to **all-time current totals** with a selectable date range for activity, or should all widgets share one date filter?
 
-The hybrid role-visibility direction is resolved. No implementation should begin until the remaining decisions are resolved and the page specification is approved.
+The hybrid role-visibility direction and the three first-screen priorities are resolved. No implementation should begin until the remaining decisions are resolved and the page specification is approved.
