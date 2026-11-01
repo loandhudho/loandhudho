@@ -3,7 +3,7 @@
 **Page ID:** A06 / ADM-FEE  
 **Route:** `/admin/fees`  
 **Phase:** 1 — Admin page analysis/specifications  
-**Status:** Documented — Owner Approval Pending  
+**Status:** Owner Approved — 2026-11-02  
 **Priority:** P1  
 **Last updated:** 2026-11-02  
 **Implementation:** Not started
@@ -368,4 +368,4 @@ All tests are **Not Run**. Tests must be executed and evidenced during implement
 5. **Fee freshness:** Approve or revise the proposed 60-day reminder / 90-day stale threshold. Source/schedule changes and credible corrections trigger immediate review regardless of age.
 6. **Bulk import:** Confirm whether validated CSV import with preview, dry-run, row-level evidence and Admin-controlled publication is required for MVP. The draft does not authorize bulk publication or source scraping.
 
-No implementation, data import, public fee publication or tests are authorized by this draft. A04 remains owner-approval pending; this A06 specification is also awaiting owner approval.
+Owner approval recorded 2026-11-02. This approves the specification and its documented scope; it does not mean implementation, data import, public data publication or tests have been completed or authorized outside the project's coding gates.
