@@ -37,7 +37,7 @@ Admin is analyzed before public frontend. Page documents are created during thei
 | A02 | Institutions | [institutions.md](./admin/institutions.md) | Owner Approved | Institution data model and authorization standard |
 | A03 | Loan Categories | [loan-categories.md](./admin/loan-categories.md) | Owner Approved | Product-centric taxonomy and authorization boundaries |
 | A04 | Loan Products | [loan-products.md](./admin/loan-products.md) | Documented — Owner Approval Pending | Institutions and categories |
-| A05 | Rates and History | [rates.md](./admin/rates.md) | Not Started | Products and source records |
+| A05 | Rates and History | [rates.md](./admin/rates.md) | Documented — Owner Approval Pending | Products and source records |
 | A06 | Fees and Charges | [fees.md](./admin/fees.md) | Not Started | Products and sources |
 | A07 | Eligibility Rules | [eligibility.md](./admin/eligibility.md) | Not Started | Products and sources |
 | A08 | Offers | [offers.md](./admin/offers.md) | Not Started | Products, validity and sources |
@@ -88,16 +88,16 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 6. Progress summary
 
 - Global rules: drafted; awaiting owner approval.
-- Page specs documented: 4 (A01 Dashboard, A02 Institutions, A03 Loan Categories and A04 Loan Products). A01–A03 are owner-approved; A04 awaits owner approval.
+- Page specs documented: 5 (A01 Dashboard, A02 Institutions, A03 Loan Categories, A04 Loan Products and A05 Rates and History). A01–A03 are owner-approved; A04–A05 await owner approval.
 - Pages approved for coding: 3 (A01–A03); implementation remains gated by shared standards and dependencies.
 - Pages implemented and verified under this workflow: 0.
 - Lead management: deferred pending legal/compliance gate.
 
 ## 7. Current focus
 
-**Active page:** A05 — Rates and History  
-**Current status:** A01 Dashboard, A02 Institutions and A03 Loan Categories owner-approved; A04 Loan Products documented — Owner Approval Pending.  
-**Next action:** Analyze and document A05 Rates and History, using the A04 product relationship and data-governance standards. A04 requires owner approval before implementation.  
+**Active page:** A06 — Fees and Charges  
+**Current status:** A01 Dashboard, A02 Institutions and A03 Loan Categories owner-approved; A04 Loan Products and A05 Rates and History documented — Owner Approval Pending.  
+**Next action:** Analyze and document A06 Fees and Charges, keeping fee/charge records separate from product identity and interest-rate history. A04–A05 require owner approval before implementation.  
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
 
@@ -107,3 +107,4 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 |---|---|
 | 2026-11-02 | Created unified phase and page inventory; established admin-first analysis sequence. |\n| 2026-11-02 | Added owner-defined four-role admin model; synchronized A01/A02 and shared authorization status; set A03 as next focus. |
 | 2026-11-02 | Owner approved A01 Dashboard, A02 Institutions and A03 Loan Categories; documented A04 Loan Products with data contract, linked-record boundaries, lifecycle, workflows, tasks and 24 acceptance tests; set A05 as next focus. |
+| 2026-11-02 | Documented A05 Rates and History with product-linked rate model, conditional bands, floating-rate details, effective dating/history, source verification, bulk-import workflow, public display rules, 14 tasks and 28 acceptance tests; set A06 as next focus. |
