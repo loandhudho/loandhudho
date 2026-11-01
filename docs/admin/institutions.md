@@ -316,3 +316,15 @@ All tests are Not Run until implementation exists and execution evidence is reco
 3. Public profiles for institutions with no products should be published only when identity and official profile are verified and the profile provides useful directory value; otherwise keep them admin-only until ready.
 
 No institution bulk import, code implementation or public listing should begin until this specification and its source/verification policy are approved.
+
+
+## 19. Owner role-model update — 2026-11-02
+
+The owner-defined role model and permission boundaries are in [authorization.md](../standards/authorization.md) and supersede the provisional Editor/Reviewer/Support-Analyst labels in this specification. For this page:
+
+- **Super Admin:** full institution administration and control of institution-type/status taxonomies.
+- **Admin:** create/edit/manage institution records and operational workflows within delegated permissions; cannot redefine institution types/status catalogues or role definitions.
+- **SEO Manager:** read approved institution facts and manage only public presentation/SEO content fields where applicable; cannot change verified identity, regulatory classification or source evidence.
+- **Sales Executive / Support:** read approved institution/product information needed for assigned customer support; no institution master-data mutations.
+
+All actions require server-side permission checks. Institution-type/status options are controlled system data owned by Super Admin, not free-text values or Admin-defined options.
