@@ -43,7 +43,7 @@ Admin is analyzed before public frontend. Page documents are created during thei
 | A08 | Offers | [offers.md](./admin/offers.md) | Documented — Owner Approval Pending | Products, rates, fees, eligibility and sources |
 | A09 | Intents and Search Mappings | [intents.md](./admin/intents.md) | Documented — Owner Approval Pending | Categories, product records and bilingual search |
 | A10 | Landing Pages | [landing-pages.md](./admin/landing-pages.md) | Documented — Owner Approval Pending | Intents/categories and SEO |
-| A11 | Content and Guides | [content.md](./admin/content.md) | Not Started | Localization/editorial workflow |
+| A11 | Content and Guides | [content.md](./admin/content.md) | Documented — Owner Approval Pending | Localization/editorial workflow and source governance |
 | A12 | Leads | [leads.md](./admin/leads.md) | Deferred | Legal approval, consent and agreements |
 | A13 | Users and Roles | [users-and-roles.md](./admin/users-and-roles.md) | Not Started | Authentication and permission model |
 | A14 | Audit Logs | [audit-logs.md](./admin/audit-logs.md) | Not Started | Audit event taxonomy |
@@ -88,16 +88,16 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 6. Progress summary
 
 - Global rules: drafted; awaiting owner approval.
-- Page specs documented: 10 (A01–A10). A01–A06 are owner-approved; A07 Eligibility Rules, A08 Offers, A09 Intents and Search Mappings, and A10 Landing Pages await owner approval.
+- Page specs documented: 11 (A01–A11). A01–A06 are owner-approved; A07 Eligibility Rules, A08 Offers, A09 Intents and Search Mappings, A10 Landing Pages, and A11 Content and Guides await owner approval.
 - Pages approved for coding: 6 (A01–A06); implementation remains gated by shared standards and dependencies.
 - Pages implemented and verified under this workflow: 0.
 - Lead management: deferred pending legal/compliance gate.
 
 ## 7. Current focus
 
-**Active page:** A11 — Content and Guides  
+**Active page:** A13 — Users and Roles  
 **Current status:** A01–A06 owner-approved; A07–A09 documented — Owner Approval Pending.  
-**Next action:** Analyze and document A11, defining editorial content and guide management, source-backed financial education, localization, review/publishing and safe links to canonical marketplace records.
+**Next action:** Analyze and document A13, defining user administration, invitations, role assignment, permission delegation, account lifecycle, session/security controls and auditable access changes. A12 Leads remains deferred pending legal/compliance approval.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -115,3 +115,4 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-02 | Documented A08 Offers with product-linked promotional benefit model, A05/A06 baseline links, A07 eligibility boundaries, validity/freshness, stacking, source evidence, 17 tasks and 32 acceptance tests; set A09 as next focus. |
 | 2026-11-02 | Documented A09 Intents and Search Mappings with canonical-category separation, English/Hindi/Romanized Hindi phrase model, conservative PostgreSQL full-text/pg_trgm search, ambiguity/negation behavior, privacy-safe diagnostics, 16 tasks and 28 acceptance tests; set A10 as next focus. |
 | 2026-11-02 | Added A10 Landing Pages specification with canonical-record references, typed content blocks, SEO/localization, lifecycle/revisions, quality gates, privacy boundaries, 18 tasks and 30 acceptance tests; set A11 Content and Guides as next focus. |
+| 2026-11-02 | Added A11 Content and Guides specification covering editorial content types, claim-level source evidence, financial-education safety, English/Hindi localization, revisions, publication, SEO, privacy, 18 tasks and 30 acceptance tests; kept A12 Leads deferred and set A13 Users and Roles as next focus. |
