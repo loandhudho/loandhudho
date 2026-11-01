@@ -95,7 +95,7 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 ## 7. Current focus
 
-**Active page:** A13 — Users and Roles  
+**Active page:** A14 — Audit Logs  
 **Current status:** A01–A06 owner-approved; A07–A11 and A13 documented — Owner Approval Pending.  
 **Next action:** Analyze and document A14 Audit Logs, defining event taxonomy, searchable audit records, immutable retention, access controls, export rules, sensitive-data redaction and monitoring. A12 Leads remains deferred pending legal/compliance approval.
 
