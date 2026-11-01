@@ -33,8 +33,8 @@ Admin is analyzed before public frontend. Page documents are created during thei
 
 | Order | Page | Specification | Status | Key dependency |
 |---:|---|---|---|---|
-| A01 | Dashboard | [dashboard.md](./admin/dashboard.md) | In Analysis | Role model and metric definitions |
-| A02 | Institutions | [institutions.md](./admin/institutions.md) | Not Started | Institution data model |
+| A01 | Dashboard | [dashboard.md](./admin/dashboard.md) | Documented — Owner Approval Pending | Authorization standard and metric definitions |
+| A02 | Institutions | [institutions.md](./admin/institutions.md) | Documented — Owner Approval Pending | Institution data model and authorization standard |
 | A03 | Loan Categories | [loan-categories.md](./admin/loan-categories.md) | Not Started | Taxonomy |
 | A04 | Loan Products | [loan-products.md](./admin/loan-products.md) | Not Started | Institutions and categories |
 | A05 | Rates and History | [rates.md](./admin/rates.md) | Not Started | Products and source records |
@@ -79,9 +79,9 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | Standard | Document | Status |
 |---|---|---|
 | Admin navigation, shell and responsive behavior | [admin-shell.md](./standards/admin-shell.md) | Not Started |
-| Authentication, roles and permission matrix | [authorization.md](./standards/authorization.md) | Not Started |
+| Authentication, roles and permission matrix | [authorization.md](./standards/authorization.md) | Drafted — Owner Approval Pending |
 | Design tokens, components, accessibility and themes | [design-system.md](./standards/design-system.md) | Not Started |
-| Data provenance, freshness, review and history | [data-governance.md](./standards/data-governance.md) | Not Started |
+| Data provenance, freshness, review and history | [data-governance.md](./standards/data-governance.md) | Draft — Owner Approval Pending |
 | API conventions, validation and error model | [api-conventions.md](./standards/api-conventions.md) | Not Started |
 | Test strategy and release gates | [testing-strategy.md](./standards/testing-strategy.md) | Not Started |
 
@@ -105,4 +105,4 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 | Date | Change |
 |---|---|
-| 2026-11-02 | Created unified phase and page inventory; established admin-first analysis sequence. |
+| 2026-11-02 | Created unified phase and page inventory; established admin-first analysis sequence. |\n| 2026-11-02 | Added owner-defined four-role admin model; synchronized A01/A02 and shared authorization status; set A03 as next focus. |
