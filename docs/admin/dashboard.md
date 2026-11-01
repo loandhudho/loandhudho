@@ -347,3 +347,8 @@ The owner has defined the four-role model in [authorization.md](../standards/aut
 - **Sales Executive / Support:** assigned-scope product/customer/support and (only after legal approval) lead queues and non-identifying sales analytics. Until that gate, no customer/lead PII widgets.
 
 All common KPI and drill-down data must be permission- and scope-filtered server-side. Replace the old role labels and matrix when the dashboard spec is next comprehensively revised; this addendum is authoritative in the interim.
+
+
+## 20. Confirmed Admin operational authority — 2026-11-02
+
+The owner confirmed that Admin can add, edit, review, approve and publish institutions, loan products, rates, fees, eligibility data and offers. Dashboard review/publishing queues must therefore be available to Admin according to the effective permission set; do not assume that financial publication requires a separate Reviewer role or second-person approval. Super Admin alone defines role/permission structures and controlled system taxonomies. Keep source evidence, freshness warnings, version history and audit trails visible to authorized operators. This decision supersedes any earlier implication in this specification that Admin publication is only delegated or that a separate approver is mandatory.
