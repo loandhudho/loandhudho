@@ -1,0 +1,13 @@
+{
+  "brand": "LoanDhudho",
+  "nav": { "loans": "Explore loans", "howItWorks": "How it works", "about": "About" },
+  "home": {
+    "eyebrow": "YOUR LOAN DISCOVERY PARTNER",
+    "title": "Find a loan that fits your plans.",
+    "description": "Tell us what you need. Explore loan options, compare important details and make a more informed decision.",
+    "searchPlaceholder": "e.g. I want to buy a house...",
+    "searchButton": "Find loans",
+    "exploreByPurpose": "Explore by purpose"
+  },
+  "theme": { "light": "Light mode", "dark": "Dark mode" }
+}
