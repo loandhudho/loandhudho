@@ -57,7 +57,7 @@ These are initial operational recommendations, not approved service-level agreem
 
 | Data type | Reminder after verification | Mark stale after | Additional trigger |
 |---|---:|---:|---|
-| Interest rates | 30 days | 45 days | Lender notice, benchmark change or source update |
+| Interest rates | 90 days | 180 days | Lender-published revision, source/effective-period change or credible correction; age alone does not imply a rate change |
 | Fees and charges | 60 days | 90 days | Schedule-of-charges update |
 | Offers | 7 days before expiry | At expiry | Source invalidation or terms change |
 | Institution profile | 180 days | 365 days | Legal/status/name change |
