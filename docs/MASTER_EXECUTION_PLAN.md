@@ -96,9 +96,10 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 7. Current focus
 
 **Active page:** A01 — Admin Dashboard  
-**Current status:** In Analysis  
-**Next action:** Confirm dashboard audience/role visibility and preferred dashboard priorities, then finalize its specification, task breakdown and acceptance tests.  
-**Coding gate:** Closed until dashboard documentation is approved.
+**Current status:** Documented — Owner Approval Pending  
+**Next action:** Owner review/approval of A01 Dashboard and draft data-governance standard; then begin A02 Institutions analysis.  
+**Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
+**Coding gate:** Closed until A01 and relevant shared standards are approved.
 
 ## 8. Change log
 
