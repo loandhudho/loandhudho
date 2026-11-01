@@ -39,6 +39,8 @@ Role-specific widgets are additive to the common overview, not separate dashboar
 
 ## 4. Proposed information architecture
 
+**Owner-approved first-screen priorities:** products pending review; stale rates, fees and sources requiring verification; and offers nearing expiry. These should receive the strongest visual emphasis in the common overview, subject to each user's authorized data scope.
+
 1. Page heading, current reporting period and last refreshed timestamp.
 2. Common operational KPI cards:
    - Active institutions.
