@@ -335,3 +335,15 @@ Filter parameters must be allowlisted, validated, shareable only where safe, and
 2. **Date behavior — approved:** current operational totals are all-time/current-state; recent activity has an independent selectable date range; offer counts use offer validity dates. The business timezone convention will be defined in the shared settings standard.
 
 The hybrid role-visibility direction, first-screen priorities, split date behavior, dashboard content, marketplace coverage metrics, proposed data contracts, configurable freshness defaults, UI states, drill-down filter contract and privacy guardrails are documented. The wireframe direction has been accepted. Proposed freshness thresholds and warning windows are defaults for owner review, not approved SLAs. Final authorization mapping and cross-page data-governance review remain dependencies. No implementation should begin until the owner explicitly approves the completed specification.
+
+
+## 19. Owner role-model update — 2026-11-02
+
+The owner has defined the four-role model in [authorization.md](../standards/authorization.md). It supersedes the provisional Super Admin / Editor / Reviewer / Support-Analyst labels in Sections 2 and 6.2 above. For implementation, map dashboard widgets as follows:
+
+- **Super Admin:** system-wide marketplace overview, role/permission administration, controlled taxonomies, audit and global data-quality controls.
+- **Admin:** operational institution/product/user metrics and queues within delegated permissions; no role-definition or system-taxonomy controls.
+- **SEO Manager:** content inventory, drafts/reviews/publications, page freshness and organic/page analytics; no lead PII or edits to verified financial facts.
+- **Sales Executive / Support:** assigned-scope product/customer/support and (only after legal approval) lead queues and non-identifying sales analytics. Until that gate, no customer/lead PII widgets.
+
+All common KPI and drill-down data must be permission- and scope-filtered server-side. Replace the old role labels and matrix when the dashboard spec is next comprehensively revised; this addendum is authoritative in the interim.
