@@ -35,7 +35,7 @@ Admin is analyzed before public frontend. Page documents are created during thei
 |---:|---|---|---|---|
 | A01 | Dashboard | [dashboard.md](./admin/dashboard.md) | Documented — Owner Approval Pending | Authorization standard and metric definitions |
 | A02 | Institutions | [institutions.md](./admin/institutions.md) | Documented — Owner Approval Pending | Institution data model and authorization standard |
-| A03 | Loan Categories | [loan-categories.md](./admin/loan-categories.md) | Not Started | Taxonomy |
+| A03 | Loan Categories | [loan-categories.md](./admin/loan-categories.md) | Documented — Owner Approval Pending | Product-centric taxonomy and authorization boundaries |
 | A04 | Loan Products | [loan-products.md](./admin/loan-products.md) | Not Started | Institutions and categories |
 | A05 | Rates and History | [rates.md](./admin/rates.md) | Not Started | Products and source records |
 | A06 | Fees and Charges | [fees.md](./admin/fees.md) | Not Started | Products and sources |
@@ -88,16 +88,16 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 6. Progress summary
 
 - Global rules: drafted; awaiting owner approval.
-- Page specs documented: 2 (A01 Dashboard and A02 Institutions); both await explicit owner approval.
+- Page specs documented: 3 (A01 Dashboard, A02 Institutions and A03 Loan Categories); all await explicit owner approval.
 - Pages approved for coding: 0.
 - Pages implemented and verified under this workflow: 0.
 - Lead management: deferred pending legal/compliance gate.
 
 ## 7. Current focus
 
-**Active page:** A03 — Loan Categories  
-**Current status:** Documented — Owner Approval Pending  
-**Next action:** Analyze and document A03 Loan Categories. A01 Dashboard and A02 Institutions specifications are documented and await explicit owner approval.  
+**Active page:** A04 — Loan Products  
+**Current status:** A03 documented — Owner Approval Pending; A04 analysis next  
+**Next action:** Analyze and document A04 Loan Products, using the approved institution and category references. A01–A03 specifications are documented and await explicit owner approval.  
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until A01 and relevant shared standards are approved.
 
@@ -106,3 +106,4 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | Date | Change |
 |---|---|
 | 2026-11-02 | Created unified phase and page inventory; established admin-first analysis sequence. |\n| 2026-11-02 | Added owner-defined four-role admin model; synchronized A01/A02 and shared authorization status; set A03 as next focus. |
+| 2026-11-02 | Documented A03 Loan Categories, including product-centric taxonomy, role boundaries, localization, comparison profiles, lifecycle, tasks and acceptance tests; set A04 as next focus. |
