@@ -46,7 +46,7 @@ Admin is analyzed before public frontend. Page documents are created during thei
 | A11 | Content and Guides | [content.md](./admin/content.md) | Documented — Owner Approval Pending | Localization/editorial workflow and source governance |
 | A12 | Leads | [leads.md](./admin/leads.md) | Deferred | Legal approval, consent and agreements |
 | A13 | Users and Roles | [users-and-roles.md](./admin/users-and-roles.md) | Documented — Owner Approval Pending | Authentication, authorization and audit model |
-| A14 | Audit Logs | [audit-logs.md](./admin/audit-logs.md) | Documented — Owner Approval Pending | Event taxonomy, append-only storage, integrity, authorization and retention policy |
+| A14 | Audit Logs | [audit-logs.md](./admin/audit-logs.md) | Owner Approved — policy-specific gates remain | Event taxonomy, append-only storage, integrity, authorization and retention policy |
 | A15 | Settings | [settings.md](./admin/settings.md) | Not Started | Configuration ownership/security |
 
 ## 4. Public frontend page inventory
@@ -88,16 +88,16 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 6. Progress summary
 
 - Global rules: drafted; awaiting owner approval.
-- Page specs documented: 13 (A01–A11 and A13–A14). A01–A06 are owner-approved; A07–A11 and A13–A14 await owner approval. A12 Leads remains deferred pending legal/compliance approval.
-- Pages approved for coding: 6 (A01–A06); implementation remains gated by shared standards and dependencies.
+- Page specs documented: 13 (A01–A11 and A13–A14). A01–A06 and A14 are owner-approved; A07–A11 and A13 await owner approval. A12 Leads remains deferred pending legal/compliance approval.
+- Pages approved for coding: 7 (A01–A06 and A14); implementation remains gated by shared standards and dependencies, with A14 retention, metadata collection and export controls subject to their recorded policy gates.
 - Pages implemented and verified under this workflow: 0.
 - Lead management: deferred pending legal/compliance gate.
 
 ## 7. Current focus
 
-**Active page:** A14 — Audit Logs  
-**Current status:** A01–A06 owner-approved; A07–A11 and A13–A14 documented — Owner Approval Pending.  
-**Next action:** Owner review of A14 Audit Logs, starting with event visibility and security-metadata collection decisions. Retention and export policy require explicit approval. A12 Leads remains deferred pending legal/compliance approval.
+**Active page:** A15 — Settings  
+**Current status:** A01–A06 and A14 owner-approved; A07–A11 and A13 documented — Owner Approval Pending. A14 has remaining privacy, retention, export and security-review gates recorded in its specification.  
+**Next action:** Analyze and document A15 Settings. A12 Leads remains deferred pending legal/compliance approval.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -119,3 +119,5 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-02 | Added A13 Users and Roles specification covering staff invitations, owner-defined role boundaries, delegated permissions, account lifecycle, MFA/session controls, audit requirements, privacy boundaries, 18 tasks and 32 acceptance tests; kept A12 Leads deferred and set A14 Audit Logs as next focus. |
 
 | 2026-11-02 | Added A14 Audit Logs specification covering the event taxonomy and structured event envelope, transactional/outbox capture, append-only storage, integrity checkpoints, role/scope controls, search/detail, controlled export, retention/legal holds, monitoring, 18 tasks and 32 acceptance tests; kept A12 Leads deferred. |
+
+| 2026-11-02 | Recorded owner acceptance of all eight A14 recommendations: operational audit visibility for Admin with security-event grants controlled separately; narrowly scoped IP/user-agent collection subject to privacy approval; retention classes without guessed durations; export and annotations deferred from MVP; append-only/hash/checkpoint integrity design; fail-closed critical mutations; and narrowly scoped future two-person controls subject to security review. Marked A14 owner-approved with explicit policy gates and advanced focus to A15 Settings. |
