@@ -95,9 +95,9 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 ## 7. Current focus
 
-**Active page:** A01 — Admin Dashboard  
+**Active page:** A03 — Loan Categories  
 **Current status:** Documented — Owner Approval Pending  
-**Next action:** Owner review/approval of A01 Dashboard and draft data-governance standard; then begin A02 Institutions analysis.  
+**Next action:** Analyze and document A03 Loan Categories. A01 Dashboard and A02 Institutions specifications are documented and await explicit owner approval.  
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until A01 and relevant shared standards are approved.
 
