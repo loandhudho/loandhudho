@@ -88,7 +88,7 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 6. Progress summary
 
 - Global rules: drafted; awaiting owner approval.
-- Page specs completed: 0 (dashboard analysis is the first active page).
+- Page specs documented: 2 (A01 Dashboard and A02 Institutions); both await explicit owner approval.
 - Pages approved for coding: 0.
 - Pages implemented and verified under this workflow: 0.
 - Lead management: deferred pending legal/compliance gate.
