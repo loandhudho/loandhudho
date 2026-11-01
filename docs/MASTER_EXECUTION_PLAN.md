@@ -46,7 +46,7 @@ Admin is analyzed before public frontend. Page documents are created during thei
 | A11 | Content and Guides | [content.md](./admin/content.md) | Documented — Owner Approval Pending | Localization/editorial workflow and source governance |
 | A12 | Leads | [leads.md](./admin/leads.md) | Deferred | Legal approval, consent and agreements |
 | A13 | Users and Roles | [users-and-roles.md](./admin/users-and-roles.md) | Documented — Owner Approval Pending | Authentication, authorization and audit model |
-| A14 | Audit Logs | [audit-logs.md](./admin/audit-logs.md) | Not Started | Audit event taxonomy |
+| A14 | Audit Logs | [audit-logs.md](./admin/audit-logs.md) | Documented — Owner Approval Pending | Event taxonomy, append-only storage, integrity, authorization and retention policy |
 | A15 | Settings | [settings.md](./admin/settings.md) | Not Started | Configuration ownership/security |
 
 ## 4. Public frontend page inventory
@@ -88,7 +88,7 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 6. Progress summary
 
 - Global rules: drafted; awaiting owner approval.
-- Page specs documented: 12 (A01–A11 and A13). A01–A06 are owner-approved; A07–A11 and A13 Users and Roles await owner approval. A12 Leads remains deferred pending legal/compliance approval.
+- Page specs documented: 13 (A01–A11 and A13–A14). A01–A06 are owner-approved; A07–A11 and A13–A14 await owner approval. A12 Leads remains deferred pending legal/compliance approval.
 - Pages approved for coding: 6 (A01–A06); implementation remains gated by shared standards and dependencies.
 - Pages implemented and verified under this workflow: 0.
 - Lead management: deferred pending legal/compliance gate.
@@ -96,8 +96,8 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 7. Current focus
 
 **Active page:** A14 — Audit Logs  
-**Current status:** A01–A06 owner-approved; A07–A11 and A13 documented — Owner Approval Pending.  
-**Next action:** Analyze and document A14 Audit Logs, defining event taxonomy, searchable audit records, immutable retention, access controls, export rules, sensitive-data redaction and monitoring. A12 Leads remains deferred pending legal/compliance approval.
+**Current status:** A01–A06 owner-approved; A07–A11 and A13–A14 documented — Owner Approval Pending.  
+**Next action:** Owner review of A14 Audit Logs, starting with event visibility and security-metadata collection decisions. Retention and export policy require explicit approval. A12 Leads remains deferred pending legal/compliance approval.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -117,3 +117,5 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-02 | Added A10 Landing Pages specification with canonical-record references, typed content blocks, SEO/localization, lifecycle/revisions, quality gates, privacy boundaries, 18 tasks and 30 acceptance tests; set A11 Content and Guides as next focus. |
 | 2026-11-02 | Added A11 Content and Guides specification covering editorial content types, claim-level source evidence, financial-education safety, English/Hindi localization, revisions, publication, SEO, privacy, 18 tasks and 30 acceptance tests; kept A12 Leads deferred and set A13 Users and Roles as next focus. |
 | 2026-11-02 | Added A13 Users and Roles specification covering staff invitations, owner-defined role boundaries, delegated permissions, account lifecycle, MFA/session controls, audit requirements, privacy boundaries, 18 tasks and 32 acceptance tests; kept A12 Leads deferred and set A14 Audit Logs as next focus. |
+
+| 2026-11-02 | Added A14 Audit Logs specification covering the event taxonomy and structured event envelope, transactional/outbox capture, append-only storage, integrity checkpoints, role/scope controls, search/detail, controlled export, retention/legal holds, monitoring, 18 tasks and 32 acceptance tests; kept A12 Leads deferred. |
