@@ -261,7 +261,7 @@ Use configurable policies by data type, not one blanket stale threshold. Initial
 
 | Data type | Proposed review reminder | Stale classification | Notes |
 |---|---:|---:|---|
-| Interest rates | 30 days since last verification | 45 days | High-impact comparison field; verify source/effective date |
+| Interest rates | 90 days since last verification | 180 days | Age alone does not imply a rate change; use event-triggered re-verification |
 | Fees and charges | 60 days | 90 days | Recheck when product terms/source change |
 | Offers | 7 days before expiry | At validity end, or source invalidation | Expiry is separate from verification age |
 | Institution profile | 180 days | 365 days | Verify status/name/source; material changes trigger immediate review |
