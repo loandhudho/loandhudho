@@ -3,10 +3,10 @@
 **Page ID:** ADM-DASH  
 **Route:** `/admin`  
 **Phase:** 1 — Admin page analysis/specifications  
-**Status:** In Analysis  
+**Status:** Documented — Owner Approval Pending  
 **Priority:** P1  
 **Last updated:** 2026-11-02  
-**Owner approval:** Pending  
+**Owner approval:** Pending — dashboard scope now includes lender/product/rate coverage and comparison-readiness operations  
 **Implementation:** Not started under documentation-first workflow
 
 ## 1. Purpose
@@ -179,11 +179,11 @@ Dependencies:
 | ADM-DASH-001 | P1 | Confirm dashboard audiences and role-specific visibility (hybrid model selected) | Owner decision | Resolved — Approved Direction |
 | ADM-DASH-002 | P1 | Approve KPI definitions, reporting period and timezone behavior | Owner decision | Resolved — priorities and split date behavior approved; timezone convention to be standardized globally |
 | ADM-DASH-003 | P1 | Define dashboard wireframe and responsive information hierarchy | 001, 002 | Owner-reviewed — wireframe direction accepted; content specification documented |
-| ADM-DASH-004 | P1 | Define aggregate query/data contracts and freshness calculations | Data governance | In Progress — recommended dashboard data items and chart rules documented; schemas/thresholds pending |
-| ADM-DASH-005 | P1 | Specify empty/loading/error/partial-data states | 003, 004 | Not Started |
-| ADM-DASH-006 | P1 | Define drill-down routes and filter preservation | Admin page inventory | Not Started |
-| ADM-DASH-007 | P1 | Complete permission, privacy and audit threat review | Authorization standard | Not Started |
-| ADM-DASH-008 | P1 | Finalize acceptance tests and obtain owner approval | 001–007 | Not Started |
+| ADM-DASH-004 | P1 | Define aggregate query/data contracts, marketplace coverage metrics and freshness calculations | Data governance | Documented — proposed contracts/defaults recorded; shared data standard to be owner-reviewed |
+| ADM-DASH-005 | P1 | Specify empty/loading/error/partial-data states | 003, 004 | Documented |
+| ADM-DASH-006 | P1 | Define drill-down routes and filter preservation | Admin page inventory | Documented — proposed route contract; align during page specs |
+| ADM-DASH-007 | P1 | Complete permission, privacy and audit threat review | Authorization standard | In Progress — dashboard guardrails documented; shared authorization review pending |
+| ADM-DASH-008 | P1 | Finalize acceptance tests and obtain owner approval | 001–007 | Awaiting Owner Approval — documentation baseline complete; shared standards remain dependencies |
 | ADM-DASH-009 | P1 | Implement approved dashboard | 008 approved | Not Started |
 | ADM-DASH-010 | P1 | Execute unit, integration, RBAC, responsive and E2E tests; record evidence | 009 | Not Started |
 
@@ -218,9 +218,120 @@ All tests remain Not Run until implementation exists and execution evidence is r
 - Lint, typecheck, relevant unit/integration tests, Playwright flows and production build pass.
 - Master tracker reflects actual status and remaining limitations.
 
+## 12. Dashboard data contracts, thresholds and operational states
+
+### 12.1 Marketplace coverage and comparison-readiness metrics
+
+LoanDhudho's core inventory is a lender-to-product catalog: institutions (banks and NBFCs), their loan products, product-specific rates and charges, eligibility terms, and offers. The dashboard should help operators build breadth while protecting data quality. It must never reward raw record volume at the expense of accuracy.
+
+Add a **Marketplace coverage** panel, visible to roles with the relevant catalog permissions:
+
+| Measure | Definition | Breakdown / drill-down |
+|---|---|---|
+| Institutions in directory | Distinct institutions with a directory record, split by active, onboarding/incomplete, inactive | Institution list with status |
+| Institutions with published products | Distinct active institutions linked to at least one published product | Institution list filtered to no published products / has products |
+| Product catalog coverage | Published products by loan category and institution; show unpublished/draft separately | Category and product queues |
+| Rate coverage | Published products with at least one current, source-backed rate record / published products requiring a rate | Missing-rate and rate-review queues |
+| Fee coverage | Published products with required fee/charge disclosures / products where fee data is required | Missing-fee and fee-review queues |
+| Source verification coverage | Published rates/fees with source URL and last-verified timestamp | Missing-source and stale-source queues |
+| Comparison readiness | Products meeting required comparison-field completeness for their category | Comparison-readiness exceptions by category |
+
+Coverage ratios must show numerator and denominator (for example, “42 of 60 published home-loan products have a current rate”), not a percentage alone. Category-specific required fields must be configured; do not assume every loan type has identical rate, fee or eligibility fields. Do not count an institution as a lender partner unless a verified partnership relationship exists.
+
+**Category-specific comparison readiness:** for a home loan, likely fields include interest-rate type (fixed/floating/mixed), published rate or range, benchmark/spread where disclosed, tenure range, processing fee, other material charges, eligibility highlights, source, verification date and effective date. Other product categories may require different fields. These are data-quality requirements, not a promise that every lender publishes every field. Unknown or undisclosed values must be represented explicitly as “not disclosed” or “not available,” never inferred.
+
+### 12.2 Core data contracts for dashboard aggregates
+
+All dashboard queries should derive from canonical records and share stable definitions with the catalog pages.
+
+- **Institution:** stable ID, legal/display name, institution type (bank/NBFC/other regulated lender as verified), status, source/evidence, created/updated timestamps.
+- **Loan product:** stable ID, institution ID, category ID, product name, lifecycle status, publication status, required-field profile, review status.
+- **Rate record:** product ID, rate value or range, rate type, applicable benchmark/spread if sourced, effective-from/to, source URL, last-verified-at, verification status, record status.
+- **Fee record:** product ID, fee type, amount/value and unit, applicability/conditions, effective dates, source URL, last-verified-at, verification status, record status.
+- **Offer:** institution/product association, validity start/end, publication status, source/evidence, last verified timestamp.
+- **Review item:** entity type/ID, state, assigned reviewer, submitted-at, decision-at, reason/correction metadata.
+- **Audit event:** actor ID, action, entity type/ID, timestamp, outcome, safe metadata allowlist.
+- **Consent/lead:** not part of dashboard aggregates in this phase; any future lead metrics require separately approved lawful purpose, consent, retention and role access.
+
+Every metric response should include: metric key, count/value, unit, scope, calculation/as-of timestamp, applied filters and data freshness metadata. For ratios, include numerator and denominator. Avoid one dashboard query that returns fields the requesting role is not permitted to see.
+
+### 12.3 Freshness policy and configurable defaults
+
+Use configurable policies by data type, not one blanket stale threshold. Initial defaults below are **proposed starting values only**, not approved business SLAs or a claim about lender update frequency. They must be adjustable in admin settings and shown in the data-governance standard.
+
+| Data type | Proposed review reminder | Stale classification | Notes |
+|---|---:|---:|---|
+| Interest rates | 30 days since last verification | 45 days | High-impact comparison field; verify source/effective date |
+| Fees and charges | 60 days | 90 days | Recheck when product terms/source change |
+| Offers | 7 days before expiry | At validity end, or source invalidation | Expiry is separate from verification age |
+| Institution profile | 180 days | 365 days | Verify status/name/source; material changes trigger immediate review |
+| Product terms/eligibility | 90 days | 180 days | Category-specific; high-impact changes trigger immediate review |
+
+Rules:
+- Missing verification timestamp is a separate **Unverified** state, not “fresh” and not automatically the same as “stale.”
+- A source URL missing on a published material financial claim is a publication-blocking data-quality exception.
+- Expired effective dates/offer validity are evaluated independently of last verification time.
+- A material source change, lender notice or user-reported correction can trigger immediate re-review regardless of age.
+- Preserve previous values and effective periods; updates must not silently overwrite historical rate/fee facts.
+- Display “last verified” and “effective from” separately.
+- Store timestamps in UTC; display operational dates in IST (Asia/Kolkata) unless the product-wide timezone standard is explicitly revised. Date-only offer end dates should be inclusive through the end of the displayed IST date; implement this consistently and test boundary conditions.
+- Thresholds should be configurable by authorized Super Admins, validated to prevent nonsensical values, audited on change, and never silently alter historic audit facts.
+
+### 12.4 Review-age and offer-warning defaults
+
+- Reviewer age buckets: under 1 day, 1–3 days, 3–7 days, over 7 days. These are visualization buckets, not a committed service-level agreement.
+- Until a review SLA is approved, label items by age only; do not mark them “overdue” or show an SLA-breach KPI.
+- Proposed offer warning window: 7 calendar days before expiry, configurable. Expired offers must be removed from active/public states according to the offer lifecycle rules.
+- All boundary calculations use the same IST business-date convention and are covered by tests.
+
+### 12.5 Loading, empty, error and partial-data states
+
+| State | Required behavior |
+|---|---|
+| Initial loading | Skeletons preserve page hierarchy; announce loading state accessibly; avoid flashing zero values |
+| No catalog data | Explain that institutions/products have not yet been added; show authorized setup action |
+| No pending reviews | Show a clear “Nothing awaiting review” state, not an empty chart |
+| No rates/fees yet | Distinguish missing data from stale data; link to the appropriate catalog/data-quality queue |
+| No activity history | Explain that activity appears after audited actions; do not fabricate a trend |
+| Partial widget failure | Keep successful widgets visible; mark only failed widget unavailable with retry; do not present failure as zero |
+| Full page/data failure | Show recoverable error, safe retry and support reference; no stack traces or sensitive query details |
+| Permission denied | Omit unauthorized widget or show a neutral access message where appropriate; endpoint must still deny server-side |
+| Stale cached aggregate | Show its as-of time and stale/cache label; never imply current/live data |
+| Insufficient chart sample | Replace chart with concise explanatory empty state or table |
+
+### 12.6 Drill-down route and filter contract
+
+Use the following proposed routes, aligning names with the page inventory and final route convention:
+
+| Dashboard item | Destination | Preserved filter intent |
+|---|---|---|
+| Active institutions / no products | `/admin/institutions` | status, hasPublishedProducts |
+| Published products / pending product review | `/admin/loan-products` | publicationStatus, reviewStatus, categoryId, institutionId |
+| Stale/missing rates | `/admin/rates` | verificationStatus, stale, missingSource, productId, institutionId |
+| Stale/missing fees | `/admin/fees` | verificationStatus, stale, missingSource, productId |
+| Offers nearing expiry | `/admin/offers` | status, expiresBefore, validityStatus |
+| Category coverage / comparison readiness | `/admin/loan-products` | categoryId, comparisonReadiness |
+| Review age / outcomes | Relevant entity queue or `/admin/reviews` (route to be finalized) | reviewStatus, ageBucket, entityType, assignedReviewer |
+| Admin users/roles | `/admin/users` | status, role |
+| Audit activity | `/admin/audit-logs` | action, entityType, dateRange |
+| Leads | No dashboard destination in this phase | Deferred pending legal/compliance approval |
+
+Filter parameters must be allowlisted, validated, shareable only where safe, and re-authorized by the destination. Do not place personal data, tokens or sensitive values in URLs. If a destination route is not yet implemented, keep the widget non-clickable or route to a documented safe placeholder rather than a broken link.
+
+### 12.7 Permission and privacy guardrails
+
+- Common marketplace counts may be visible to all authenticated admin roles only if the underlying business policy permits the same aggregate scope. Otherwise apply institution/category/team scope consistently.
+- Super Admin may view global catalog coverage, system configuration and audit summaries.
+- Editor sees assigned/authorized institutions, products, rates, fees and offers; no user administration or unrestricted audit log.
+- Reviewer sees assigned review queues and the minimum record/source context needed to make a decision; no unrelated borrower/lead data.
+- Support/Analyst sees scoped read-only catalog and publication information; no rate/fee editing, approval, user administration or lead details by default.
+- Lead data and lead conversion/recipient metrics remain excluded until a dedicated lead specification and legal/compliance approval. If later enabled, require explicit purpose-specific consent, recipient disclosure, least-privilege access, access logging, retention/deletion controls and separate dashboard design.
+- Activity metadata must be allowlisted. Never serialize full request bodies, credentials, tokens, bank account details, contact details or free-text lead content into dashboard events.
+- Authorization is based on effective permissions and record scope, not only role labels. Enforce at query/service layer and test direct endpoint access.
+
 ## 13. Open decisions for product owner
 
 1. **First-screen priorities — approved:** (a) products pending review, (b) stale rates/fees/sources requiring verification, and (c) offers nearing expiry.
 2. **Date behavior — approved:** current operational totals are all-time/current-state; recent activity has an independent selectable date range; offer counts use offer validity dates. The business timezone convention will be defined in the shared settings standard.
 
-The hybrid role-visibility direction, three first-screen priorities, split date behavior and dashboard content recommendations are documented. The wireframe direction has been accepted. Remaining data contracts, freshness/SLA thresholds, permission mapping, UI states, drill-downs and security review must be completed before final owner approval. No implementation should begin until the page specification is approved.
+The hybrid role-visibility direction, first-screen priorities, split date behavior, dashboard content, marketplace coverage metrics, proposed data contracts, configurable freshness defaults, UI states, drill-down filter contract and privacy guardrails are documented. The wireframe direction has been accepted. Proposed freshness thresholds and warning windows are defaults for owner review, not approved SLAs. Final authorization mapping and cross-page data-governance review remain dependencies. No implementation should begin until the owner explicitly approves the completed specification.
