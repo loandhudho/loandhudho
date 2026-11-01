@@ -42,7 +42,7 @@ Admin is analyzed before public frontend. Page documents are created during thei
 | A07 | Eligibility Rules | [eligibility.md](./admin/eligibility.md) | Documented — Owner Approval Pending | Products, rates and fees |
 | A08 | Offers | [offers.md](./admin/offers.md) | Documented — Owner Approval Pending | Products, rates, fees, eligibility and sources |
 | A09 | Intents and Search Mappings | [intents.md](./admin/intents.md) | Documented — Owner Approval Pending | Categories, product records and bilingual search |
-| A10 | Landing Pages | [landing-pages.md](./admin/landing-pages.md) | Not Started | Intents/categories and SEO |
+| A10 | Landing Pages | [landing-pages.md](./admin/landing-pages.md) | Documented — Owner Approval Pending | Intents/categories and SEO |
 | A11 | Content and Guides | [content.md](./admin/content.md) | Not Started | Localization/editorial workflow |
 | A12 | Leads | [leads.md](./admin/leads.md) | Deferred | Legal approval, consent and agreements |
 | A13 | Users and Roles | [users-and-roles.md](./admin/users-and-roles.md) | Not Started | Authentication and permission model |
@@ -88,16 +88,16 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 6. Progress summary
 
 - Global rules: drafted; awaiting owner approval.
-- Page specs documented: 9 (A01–A09). A01–A06 are owner-approved; A07 Eligibility Rules, A08 Offers and A09 Intents and Search Mappings await owner approval.
+- Page specs documented: 10 (A01–A10). A01–A06 are owner-approved; A07 Eligibility Rules, A08 Offers, A09 Intents and Search Mappings, and A10 Landing Pages await owner approval.
 - Pages approved for coding: 6 (A01–A06); implementation remains gated by shared standards and dependencies.
 - Pages implemented and verified under this workflow: 0.
 - Lead management: deferred pending legal/compliance gate.
 
 ## 7. Current focus
 
-**Active page:** A10 — Landing Pages  
+**Active page:** A11 — Content and Guides  
 **Current status:** A01–A06 owner-approved; A07–A09 documented — Owner Approval Pending.  
-**Next action:** Analyze and document A10, defining landing-page creation, SEO, canonicalization and safe use of approved A03 categories/A09 intents without creating duplicate or unsupported product claims.
+**Next action:** Analyze and document A11, defining editorial content and guide management, source-backed financial education, localization, review/publishing and safe links to canonical marketplace records.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -114,3 +114,4 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-02 | Owner approved A04 Loan Products, A05 Rates and History and A06 Fees and Charges; recorded approvals in each specification. Documented A07 Eligibility Rules with 16 tasks and 29 acceptance tests; set A08 Offers as next focus. |
 | 2026-11-02 | Documented A08 Offers with product-linked promotional benefit model, A05/A06 baseline links, A07 eligibility boundaries, validity/freshness, stacking, source evidence, 17 tasks and 32 acceptance tests; set A09 as next focus. |
 | 2026-11-02 | Documented A09 Intents and Search Mappings with canonical-category separation, English/Hindi/Romanized Hindi phrase model, conservative PostgreSQL full-text/pg_trgm search, ambiguity/negation behavior, privacy-safe diagnostics, 16 tasks and 28 acceptance tests; set A10 as next focus. |
+| 2026-11-02 | Added A10 Landing Pages specification with canonical-record references, typed content blocks, SEO/localization, lifecycle/revisions, quality gates, privacy boundaries, 18 tasks and 30 acceptance tests; set A11 Content and Guides as next focus. |
