@@ -197,9 +197,9 @@ Verification state is separate from publication state and product lifecycle. A r
 
 ### 8.2 Freshness defaults
 
-The data-governance standard proposes a 30-day reminder and 45-day stale threshold for interest rates. These are draft operational defaults, not approved SLAs. Until owner approval, show age and verification timestamp and make the threshold configurable; do not hard-code it as policy. Missing verification date means Unverified, not fresh.
+The proposed baseline is a 90-day review reminder and a 180-day stale threshold for published interest rates. These are draft operational defaults, not approved SLAs. Interest rates should not be presumed incorrect merely because they have remained unchanged; retain the last-verified date and distinguish age from evidence of a rate change. Until owner approval, show age and verification timestamp and make the threshold configurable; do not hard-code it as policy. Missing verification date means Unverified, not fresh.
 
-A source change, benchmark update, lender notice or credible correction report can trigger immediate re-verification regardless of age.
+Trigger immediate re-verification regardless of age when the lender publishes a rate revision or circular, the cited source changes or disappears, a stated effective period ends, a relevant benchmark/reset event affects the published claim, or a credible correction/dispute is received. A benchmark movement alone must not be treated as proof that every lender product rate changed.
 
 ## 9. Bulk entry and import
 
