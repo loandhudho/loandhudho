@@ -88,8 +88,8 @@ Until that gate is passed, lead and customer PII modules remain disabled or unav
 
 ## 7. Review, publishing and separation of duties
 
-- Where practical, the person who creates a material financial-data record should not be its sole approver/publisher.
-- Admin's ability to approve/publish is an explicit delegated permission, not automatic from the role name.
+- Owner decision (2026-11-02): Admin may create, edit, review, approve and publish institution, product, rate, fee, eligibility and offer records. Routine publication does not require a separate approver.
+- Preserve source evidence, validation, version history and audit logs for every material financial-data change. Optional maker-checker safeguards for selected high-risk changes may be considered later, but are not a universal requirement.
 - SEO Manager can publish content within editorial scope but cannot publish changed financial facts.
 - Super Admin may override workflow controls only through a reasoned, audited exceptional action.
 - Suspension, role elevation, permission grants, exports and sensitive data access are auditable.
@@ -120,7 +120,7 @@ Until that gate is passed, lead and customer PII modules remain disabled or unav
 ## 10. Open implementation decisions
 
 1. Exact permission keys, scope vocabulary and delegation ceiling will be finalized during A13 Users and Roles and implementation design.
-2. Whether Admin can approve/publish institution/product/financial records must be explicitly configured per action; it is not implied by the Admin role.
+2. Resolved by owner: Admin has routine operational approval and publishing authority for institution, product and financial records.
 3. Lead access remains disabled until legal/compliance approval.
 4. Two-person approval for selected Super Admin actions is recommended for security review; final scope can be set in the security design.
 
