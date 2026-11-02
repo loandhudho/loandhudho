@@ -3,7 +3,7 @@
 **Page ID:** A08 / ADM-OFFER  
 **Route:** `/admin/offers`  
 **Phase:** 1 — Admin page analysis/specifications  
-**Status:** Documented — Owner Approval Pending  
+**Status:** Owner Approved  
 **Priority:** P1  
 **Last updated:** 2026-11-02  
 **Implementation:** Not started
@@ -175,16 +175,24 @@ All tests are **Not Run**; execution evidence is required during implementation.
 | ADM-OFFER-T31 | Workflow collects/transmits no lead/customer PII. | Not Run |
 | ADM-OFFER-T32 | UI is keyboard accessible, responsive, localized and theme-compatible. | Not Run |
 
-## 13. Open owner decisions
+## 13. Owner decisions
 
-1. Approve the proposed offer-type catalogue in §5.1 or specify changes.
-2. Confirm explicit stacking states (allowed / not allowed / named combinations / unknown) and block unresolved conflicts from publication.
-3. Confirm funding party and last-verified date on detail; key conditions and validity on cards.
-4. Approve proposed 7-calendar-day pre-expiry warning.
-5. Set configurable active-offer verification cadence; retain event-triggered checks.
-6. Approve later CSV preview/dry-run workflow; no direct bulk publication.
+The owner approved the documented A08 proposals on 2026-11-02:
 
-These are proposals, not approved policy. Owner approval may accept all defaults or specify changes.
+1. **Offer types:** Approved the catalogue in §5.1 as the initial supported set; additions remain governed by Super Admin-controlled structures.
+2. **Stacking:** Approved explicit states (allowed / not allowed / named combinations / unknown); unresolved conflicts block publication.
+3. **Display:** Approved showing funding party and last-verified date on detail pages, and key conditions and validity on offer cards.
+4. **Expiry warning:** Approved the 7-calendar-day pre-expiry warning as a configurable operational default.
+5. **Verification:** Approved configurable verification cadence with event-triggered checks; no arbitrary fixed cadence is imposed here.
+6. **Bulk import:** Approved a later CSV preview/dry-run workflow with row-level validation; direct bulk publication is not approved.
+
+## 14. Owner approval record
+
+- **Decision:** A08 Offers specification and its documented implementation task scope approved.
+- **Approved on:** 2026-11-02.
+- **Implementation:** Not started. Task scope is authorized for implementation only after shared standards and dependencies pass their gates.
+- **Testing:** All 32 acceptance tests remain Not Run.
+- **Boundary:** Offers remain promotional overlays and do not replace base rates, fees or eligibility; no lead capture, application processing or PII is authorized.
 
 ## 14. Definition of Done
 
