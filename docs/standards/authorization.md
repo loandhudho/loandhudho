@@ -1,6 +1,6 @@
 # LoanDhudho — Admin Authorization and Role Standard
 
-**Status:** Draft — owner approval pending; role boundaries and Admin operational authority confirmed by owner  
+**Status:** Owner Approved — implementation-specific decisions and security gates remain  
 **Last updated:** 2026-11-02  
 **Scope:** All admin routes, APIs, server actions, dashboards, data exports and future admin modules.
 
@@ -308,17 +308,27 @@ All tests are **Not Run** until implementation.
 | AUTH-T17 | Multiple role grants cannot bypass explicit deny, scope or legal gates. | Not Run |
 | AUTH-T18 | All tests use synthetic data and do not require real customer/lead PII. | Not Run |
 
-## 22. Open owner decisions and implementation gates
+## 22. Owner approval and remaining implementation gates
 
-The following items remain intentionally unresolved and must be settled before the corresponding implementation:
+The owner approved this Authorization standard as documented on 2026-11-02, including the proposed **All / Assigned / Own / Aggregate** scope vocabulary and the Admin delegation ceiling: Admin may delegate only permissions and scopes within their own effective authority and configured delegation ceiling, may not grant Super Admin, and may not elevate themselves.
 
-1. **Permission catalogue finalization:** Super Admin-owned catalogue; exact keys and resource/action mapping to be finalized against the approved page specs.
-2. **Scope vocabulary and delegation ceiling:** Approve the proposed All / Assigned / Own / Aggregate scopes and the rule that Admin can delegate only permissions/scopes within their own effective authority.
-3. **Authentication provider:** Select a managed identity provider after capability, security, cost and integration review.
-4. **Session and step-up policy:** Set maximum session age, re-authentication windows and which sensitive actions require step-up.
-5. **Security override controls:** Decide whether any exceptional Super Admin actions require two-person approval after threat modeling; routine Admin publication remains single-operator.
-6. **Legal/PII activation:** Lead/customer PII remains blocked until the separate legal/compliance gate is approved.
-7. **Retention:** Apply approved A14/security retention classes once legal/security durations are established; no arbitrary duration is assumed.
+The following implementation decisions and independent gates remain open; this approval does not silently resolve them:
+
+1. **Permission catalogue finalization:** Super Admin owns the catalogue; exact keys and resource/action mapping will be finalized against the approved page specifications during implementation design.
+2. **Authentication provider:** Select a managed identity provider after capability, security, cost and integration review.
+3. **Session and step-up policy:** Set maximum session age, re-authentication windows and which sensitive actions require step-up.
+4. **Security override controls:** Determine whether exceptional Super Admin actions require two-person approval after threat modeling; routine Admin publication remains single-operator.
+5. **Legal/PII activation:** Lead/customer PII remains blocked until the separate legal/compliance gate is approved.
+6. **Retention:** Apply approved A14/security retention classes once legal/security durations are established; no arbitrary duration is assumed.
+
+## 23. Owner approval record
+
+- **Decision:** Detailed Admin Authorization and Role Standard approved as documented.
+- **Approved on:** 2026-11-02.
+- **Approved scope:** Four role baselines; centralized deny-by-default permission decisions; distinct action permissions; All / Assigned / Own / Aggregate scope model; field-level access and redaction; Admin delegation ceiling and anti-self-elevation; MFA/session principles; audit and fail-closed requirements; enforcement coverage; 12 implementation tasks and 18 acceptance tests.
+- **Implementation:** Not started. Approval does not authorize bypassing authentication-provider selection, security review, legal/compliance gates or dependent shared standards.
+- **Testing:** All 18 acceptance tests remain Not Run.
+- **Lead/customer PII:** Remains disabled pending its separate legal/compliance approval.
 
 ## 23. Definition of Done
 
@@ -331,4 +341,4 @@ The following items remain intentionally unresolved and must be settled before t
 - All P0 acceptance tests pass with recorded evidence; no unresolved critical security issue remains.
 - Customer/lead PII remains disabled until its independent legal/compliance gate is satisfied.
 
-**Current state:** Detailed standard drafted; owner approval pending. No authorization code or tests have started.
+**Current state:** Owner Approved on 2026-11-02. Implementation-specific decisions and independent security/legal gates remain open. No authorization code or tests have started.
