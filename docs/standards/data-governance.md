@@ -167,3 +167,120 @@ Lead capture and transfer are a separate governed capability, not an ordinary ca
 1. Approve or revise proposed freshness thresholds before treating them as operational policy.
 2. Approve category-specific comparison profiles during the relevant product/category page specifications.
 3. Approve lead capture and lender data-sharing only after legal/compliance review and recipient agreements.
+
+## 14. Data integrity and financial fact semantics
+
+The relational model is authoritative; search indexes, comparison snapshots, cached pages and analytics aggregates are derived and must be rebuildable.
+
+- Institution is the provider identity. Each product references one institution and one primary category for MVP. Rates, fees, eligibility rules and offers reference a product; never treat an institution-level rate as applicable to every product.
+- Use stable IDs, database foreign keys, uniqueness constraints, decimal-safe financial types and explicit units. Names and slugs are mutable display values, not relationship keys.
+- Multiple simultaneous rate/fee records are permitted only when their applicability conditions are explicit. Prevent conflicting effective periods for mutually exclusive records.
+- A material change to a published fact creates a new version. Preserve the previous value, evidence, publication state and effective period. Prefer withdrawal/correction over destructive deletion.
+- Distinguish **Not disclosed**, **Not available**, **Unknown**, **Unverified**, **Stale**, **Not applicable**, explicit **Nil/zero**, **Withdrawn** and **Expired**. Null is never assumed to mean zero, no fee or not applicable.
+- Rates carry percentage unit, annual/monthly basis, nominal/effective meaning and fixed/floating/hybrid type. Keep range bounds separate. Keep floating benchmark, spread, reset frequency and applicable dates separate where disclosed. Never label nominal rate as APR.
+- Fees remain separate typed records with basis, caps/floors, tax inclusion, timing, payee, refundability and conditions where known. Distinguish lender fees from statutory and third-party charges.
+- Eligibility preserves criterion, operator, value, unit, scope and requirement strength. Use ALL/ANY only where source wording supports it; ambiguous wording remains attributed narrative.
+- Offers are promotional overlays. Rate discounts and fee waivers reference baseline versions and do not mutate base product terms. Offers may add/narrow conditions but cannot silently broaden eligibility.
+
+## 15. Claim-level evidence and source conflicts
+
+Every material public financial claim must have traceable evidence, reviewer, last-verified timestamp and effective dates where supplied. Store capture date separately from publisher effective date and last-verified date.
+
+Preferred evidence:
+1. Official lender product page, rate card, schedule of charges, official document or written lender communication.
+2. Official regulator/government source for institution identity, status or regulatory facts.
+3. Reputable secondary sources only as attributed context; do not silently substitute them for official lender terms.
+
+Where practical, map evidence to individual claims rather than assuming one product page supports every rate, fee and eligibility field. Preserve source publisher, URL/document reference, title, publication/version date, capture timestamp, relevant section/excerpt, reviewer, outcome and limitations. A URL alone does not prove current validity. Imported material remains unverified until reviewed.
+
+If sources conflict, preserve both, mark the affected claim disputed and prevent unsupported definitive comparison until reviewed. A failed source check leaves a claim unverified; it does not prove the claim false. Any automated source retrieval must use safe URL validation, host restrictions and bounded fetch limits.
+
+## 16. Freshness and event-triggered review
+
+The thresholds in Section 4 remain configurable proposals, not approved SLAs. They do not imply that rates change frequently. Age-based reminders are supplemented by event triggers: lender-published revisions, schedule-of-charges updates, source/effective-period changes, credible corrections, institution status changes and regulatory updates.
+
+Missing verification timestamps mean Unverified. Expiry is separate from freshness. Threshold changes must be audited and must not rewrite historical evidence. Store timestamps in UTC and display operational dates in IST. Display source effective date separately from last-verified date.
+
+## 17. Import and bulk-update controls
+
+Imports stage data before canonical records are changed. Accept documented formats only; validate file size, row limits, schema, encoding, units, decimal precision, references, dates, source evidence, duplicate keys and effective-period conflicts. Show row-level errors, warnings and before/after preview. Support dry-run and idempotent processing.
+
+An authorized Admin confirms accepted changes. Routine Admin publication does not require a universal second approver. Record uploader, time, file checksum, template version and row outcomes. Imports cannot change controlled taxonomies, role/permission structures or global status definitions. Use corrective versions/withdrawals for rollback; never erase published history.
+
+## 18. Publication and correction authority
+
+Admin has full routine operational authority to create, edit, review, approve, publish, correct and withdraw marketplace data within existing structures and permissions. Super Admin controls structural definitions and controlled catalogues. SEO Manager controls editorial presentation but cannot overwrite verified lender facts. Support receives only scoped access granted by the Authorization standard.
+
+Routine publication has no mandatory second-person approval. Validation, source provenance, version history and audit capture remain required. For suspected material errors, Admin may promptly unpublish, withdraw or mark a claim disputed, record the reason, investigate and correct. Changes must invalidate affected caches, search indexes, comparison projections and calculator inputs. Any exceptional two-person control requires a separate owner decision.
+
+## 19. Derived data, comparison and analytics
+
+Category-specific comparison profiles define required fields, units, source requirements, display rules and comparability. Home-loan candidate fields include rate type/range, benchmark/spread where disclosed, tenure, fees, eligibility highlights, amount range, source and verification/effective dates. Other categories require their own profiles.
+
+Compare equivalent units and conditions only. Do not rank stale or missing data as a verified advantage. Where values are not comparable, explain why and avoid false ranking. Coverage metrics show numerator and denominator and distinguish no product, no rate, undisclosed, unverified and stale. Sponsored placement is clearly labeled and separate from factual ranking.
+
+Derived outputs retain links to canonical record versions. Rebuild them after changes. Calculators identify assumptions and source versions and remain indicative. Analytics default to minimized aggregate events; raw query retention and personal-data collection require approved purpose and retention policy.
+
+## 20. Implementation tasks
+
+| Task | Priority | Scope | Status |
+|---|---|---|---|
+| DATA-001 | P0 | Normalized institution/category/product and financial-record schema with database constraints | Not Started |
+| DATA-002 | P0 | Claim-level evidence and reviewer metadata | Not Started |
+| DATA-003 | P0 | Versioning, effective dating, withdrawal and correction history | Not Started |
+| DATA-004 | P0 | Distinct missing-value and verification/freshness states | Not Started |
+| DATA-005 | P0 | Server-side publication permissions and audit integration | Not Started |
+| DATA-006 | P1 | Category comparison profiles and readiness validation | Not Started |
+| DATA-007 | P1 | Configurable freshness and event-triggered review | Not Started |
+| DATA-008 | P1 | Staged import, validation, preview, dry-run and idempotent commit | Not Started |
+| DATA-009 | P1 | Cache/search/derived-data invalidation | Not Started |
+| DATA-010 | P1 | Coverage and quality metrics with numerator/denominator | Not Started |
+| DATA-011 | P1 | Locale-safe display, units and decimal handling | Not Started |
+| DATA-012 | P1 | Privacy, retention, source-fetch security and recovery reviews | Not Started |
+
+## 21. Acceptance tests
+
+All tests begin as **Not Run**.
+
+| Test | Expected result |
+|---|---|
+| DATA-T01 | Product requires valid institution and category references. |
+| DATA-T02 | Multiple products from one institution remain distinct. |
+| DATA-T03 | Rates and fees are product-linked, not assumed institution-wide. |
+| DATA-T04 | Changed published rate creates a new version and preserves history. |
+| DATA-T05 | Conditional rates are not shown as universal when conditions are unknown. |
+| DATA-T06 | Floating benchmark and spread remain distinct and date-compatible. |
+| DATA-T07 | Nominal rate is never mislabeled APR. |
+| DATA-T08 | Missing, undisclosed, unknown, unverified, stale, not applicable and zero render distinctly. |
+| DATA-T09 | Material public claims without required evidence fail publication validation. |
+| DATA-T10 | Source effective date and last-verified date are separate. |
+| DATA-T11 | Freshness changes classification without rewriting history. |
+| DATA-T12 | Expired offers are not shown as currently available. |
+| DATA-T13 | Offer discounts/waivers reference baseline versions without mutating base terms. |
+| DATA-T14 | Conflicting sources mark claims disputed and prevent unsupported comparison. |
+| DATA-T15 | Authorized Admin can routinely approve and publish without a second approver. |
+| DATA-T16 | SEO Manager cannot change canonical financial facts through editorial tools. |
+| DATA-T17 | Unauthorized access outside effective scope is denied server-side. |
+| DATA-T18 | Audit failure blocks designated critical mutations under approved policy. |
+| DATA-T19 | Import preview catches invalid references, units, dates, duplicates and period conflicts. |
+| DATA-T20 | Reprocessing an import is idempotent. |
+| DATA-T21 | Imports cannot alter controlled structures. |
+| DATA-T22 | Corrections invalidate affected public and derived views. |
+| DATA-T23 | Comparison readiness reports missing fields without inventing values. |
+| DATA-T24 | Coverage ratios show numerator/denominator and distinguish stale/unverified data. |
+| DATA-T25 | Decimal precision, percentage units, INR and IST boundaries are correct. |
+| DATA-T26 | Derived EMI/comparison outputs identify source versions and are labeled indicative. |
+| DATA-T27 | Aggregate analytics do not expose lead/customer PII or retain raw queries by default. |
+| DATA-T28 | Lead capture/sharing remains disabled until its separate legal/compliance gate is passed. |
+
+## 22. Owner review decisions
+
+Please approve or revise:
+1. Proposed freshness defaults: rates 90-day reminder/180-day stale; fees 60/90; product terms and eligibility 90/180; institution profile 180/365. These are proposals, not active SLAs. A08's 7-day offer-expiry warning remains approved.
+2. Official lender evidence as primary basis for public financial facts; regulator/government evidence for official identity/status; secondary sources clearly attributed.
+3. Preserve published versions and correct through new versions/withdrawal rather than destructive overwrite.
+4. Admin routine operational approval/publication authority without universal second-person approval.
+5. Staged import with validation, preview and dry-run before Admin confirmation.
+6. Category-specific comparison profiles, explicit conditions/units and distinct missing-value states; no invented or inferred lender values.
+7. Lead/customer PII and lead sharing remain disabled until separate legal/compliance approval.
+
