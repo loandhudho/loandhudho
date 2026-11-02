@@ -1,6 +1,6 @@
 # Admin Shell Standard
 
-**Status:** Draft — owner approval pending  
+**Status:** Owner Approved — implementation dependencies remain  
 **Last updated:** 2026-11-02  
 **Applies to:** All authenticated LoanDhudho administration routes under `/admin`.
 
@@ -223,7 +223,11 @@ All tests are **Not Run** until executed and evidenced.
 | SHELL-T19 | Navigation bootstrap is bounded and does not load every page module unnecessarily. |
 | SHELL-T20 | All protected shell/page requests enforce server-side authorization regardless of menu visibility. |
 
-## 15. Owner review decisions
+## 15. Owner approval decisions
+
+Owner approved this standard on 2026-11-02. The approved decisions are the desktop sidebar/mobile drawer, five navigation groups, server-authorized navigation, Leads exclusion pending its legal gate, separate identity layout, omission of undefined global search/notifications, and WCAG 2.2 AA target.
+
+
 
 Please approve or revise:
 1. Persistent desktop sidebar with responsive mobile drawer and a compact top bar.
@@ -244,4 +248,5 @@ Please approve or revise:
 - No lead/customer PII is exposed while the legal gate remains closed.
 - All P0 acceptance tests pass with recorded evidence; no unresolved critical security/accessibility issue remains.
 
-**Current state:** Draft for owner review. No shell code or tests have started.
+**Owner approval:** Approved on 2026-11-02.
+**Current state:** Specification approved; implementation dependencies remain open. No shell code or tests have started.
