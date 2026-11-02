@@ -3,7 +3,7 @@
 **Page ID:** A15 / ADM-SETTINGS  
 **Route:** `/admin/settings`  
 **Priority:** P0 for secure admin launch; P1 for operational settings MVP  
-**Status:** Documented — Owner Approval Pending  
+**Status:** Owner Approved  
 **Last updated:** 2026-11-02  
 **Implementation:** Not started  
 **Tests:** Not run
@@ -371,3 +371,14 @@ The following are proposals, not assumed approvals:
 - History, conflict handling, activation failure and rollback behave as specified.
 - All P0/P1 acceptance tests pass with recorded evidence; accessibility, localization, responsive and theme checks pass.
 - Tracker and this specification reflect actual implementation/test status; no production release without explicit release approval.
+
+
+## 17. Owner approval record
+
+**Owner decision:** Approved on 2026-11-02. The owner confirmed that the A15 Settings specification looks good.
+
+Approval covers the documented page scope, authority boundaries, workflows, configuration model, security/privacy controls, task list and acceptance criteria. It does not convert proposed policy values into approved operational policy or authorize integrations that have separate legal, security or commercial gates.
+
+The seven decisions in Section 15 remain explicitly proposed/pending separate confirmation where applicable. In particular, freshness thresholds remain proposed and must not be treated as approved SLAs; MVP integrations remain constrained by their separate approval gates.
+
+**Implementation status:** Not started. Approval of the specification is not approval to bypass shared standards, dependencies, security review or release gates.
