@@ -3,7 +3,7 @@
 **Page ID:** A07 / ADM-ELIG  
 **Route:** `/admin/eligibility`  
 **Phase:** 1 — Admin page analysis/specifications  
-**Status:** Documented — Owner Approval Pending  
+**Status:** Owner Approved  
 **Priority:** P1  
 **Last updated:** 2026-11-02  
 **Implementation:** Not started
@@ -338,13 +338,22 @@ All tests are **Not Run**. Execute and evidence during implementation.
 - Accessibility, responsive, English/Hindi and light/dark requirements pass.
 - No borrower PII, credit bureau integration, lead capture or lender application facilitation is introduced without separate approval.
 
-## 17. Open owner decisions
+## 17. Owner decisions
 
-1. **Initial criterion taxonomy:** Approve the candidate dimensions and criterion families in Sections 4 and 5 as the initial controlled catalogue, or revise them. Super Admin owns future structural changes.
-2. **Requirement-strength labels:** Approve mandatory / preferred / conditional / indicative / exception / not disclosed / unknown as distinct states.
-3. **Numeric thresholds:** Confirm that age, income, credit score, employment vintage, amount, tenure, LTV and FOIR may be stored only with explicit units, basis, applicant scope and source.
-4. **Rule combination:** Approve explicit ALL/ANY groups and the rule that ambiguous lender wording remains narrative-only until clarified.
-5. **Freshness:** Approve or revise the proposed 90-day reminder / 180-day stale threshold for product terms/eligibility. Age alone does not prove criteria changed; source/policy changes and credible corrections trigger immediate review.
-6. **Bulk import:** Confirm whether validated CSV import with preview, dry-run, row-level evidence and Admin-controlled publication is required for MVP. This draft does not authorize scraping or bulk publication.
+The owner approved the A07 specification as drafted on 2026-11-02, including these initial decisions:
 
-No implementation, data import, public eligibility publication or tests are authorized by this draft. A07 is awaiting owner approval.
+1. **Initial criterion taxonomy:** Approved as the initial controlled catalogue; Super Admin owns future structural changes.
+2. **Requirement-strength labels:** Approved as distinct states: mandatory, preferred, conditional, indicative, exception, not disclosed, and unknown / not captured.
+3. **Numeric thresholds:** Approved only when explicit units, calculation basis, applicant scope and source evidence are retained.
+4. **Rule combination:** Approved explicit ALL/ANY groups. Ambiguous lender wording remains narrative-only until clarified; no arbitrary executable formulas.
+5. **Freshness:** Approved the proposed 90-day review reminder / 180-day stale threshold for product terms and eligibility, with event-triggered re-verification. This is the A07 page policy; shared governance implementation must remain configurable and consistent.
+6. **Bulk import:** Approved validated CSV import with preview, dry-run, row-level evidence/outcomes and Admin-controlled publication. Scraping and automatic bulk publication are not approved.
+
+## 18. Owner approval record
+
+- **Decision:** A07 Eligibility Rules specification approved as documented.
+- **Approved on:** 2026-11-02.
+- **Scope:** Page requirements, data model, operational workflows, role boundaries, disclosure safeguards, proposed freshness policy and validated CSV import capability as specified above.
+- **Implementation:** Not started. Approval does not authorize coding until shared standards and dependencies pass their approval gates.
+- **Testing:** Not run; all 29 acceptance tests remain pending implementation.
+- **Data/publication:** No import, live data mutation or public eligibility publication is performed by this approval.
