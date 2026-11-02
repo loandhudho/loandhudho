@@ -3,7 +3,7 @@
 **Page ID:** A11 / ADM-CONTENT  
 **Route:** /admin/content  
 **Priority:** P1  
-**Specification status:** Documented — Owner Approval Pending  
+**Specification status:** Owner Approved  
 **Implementation status:** Not Started  
 **Tests:** 30 acceptance tests defined; all Not Run  
 **Last updated:** 2026-11-02
@@ -223,15 +223,26 @@ All tests are Not Run until implementation exists.
 | ADM-CONT-T29 | Editor and public content meet keyboard/screen-reader requirements | Not Run |
 | ADM-CONT-T30 | List/editor/preview/public guide are usable on mobile and dark/light themes | Not Run |
 
-## 18. Owner decisions pending
-1. Confirm MVP content types; recommendation: guides, explainers/articles, FAQs and glossary entries.
-2. Confirm initial taxonomy and whether Super Admin alone manages it (recommended, consistent with structural ownership).
-3. Confirm which content classes require qualified legal/compliance review before publication; recommend regulatory/legal interpretation and product-specific claims be escalated.
-4. Confirm source evidence policy; recommendation: primary sources for material lender, financial and regulatory facts, with claim-level evidence.
-5. Confirm English-first release and native Hindi review requirement.
-6. Confirm author attribution model (named staff profiles versus editorial desk); recommend named author plus editorial reviewer where applicable.
-7. Confirm mandatory disclaimer variants by content type; wording requires legal review.
-8. Confirm analytics metrics and retention/consent policy; recommend aggregate-only reporting.
+## 18. Owner decisions
+
+The owner approved the documented A11 proposals on 2026-11-02:
+
+1. **MVP content types:** Approved guides, explainers/articles, FAQs and glossary entries.
+2. **Taxonomy:** Approved Super Admin ownership of content taxonomy and other structural catalogues.
+3. **Qualified review:** Regulatory/legal interpretation and product-specific claims must be escalated for qualified legal/compliance review before publication where applicable; the workflow must support configurable review gates.
+4. **Source evidence:** Approved primary sources for material lender, financial and regulatory facts, with claim-level evidence.
+5. **Localization:** Approved English-first release and native Hindi review before Hindi publication.
+6. **Attribution:** Approved named staff author attribution with editorial reviewer attribution where applicable; an editorial desk may be used where a named author is not appropriate.
+7. **Disclaimers:** Approved content-type-specific disclaimer requirements; final legal wording remains subject to qualified legal review and is not invented by this approval.
+8. **Analytics:** Approved aggregate-only analytics for MVP, with retention/consent rules defined before collection.
+
+## 19. Owner approval record
+
+- **Decision:** A11 Content and Guides specification and its documented implementation task scope approved.
+- **Approved on:** 2026-11-02.
+- **Implementation:** Not started. Task scope is authorized for implementation only after shared standards and dependencies pass their gates.
+- **Testing:** All 30 acceptance tests remain Not Run.
+- **Boundary:** No personalized financial advice, lead capture, application processing or customer/lead PII is authorized.
 
 ## 19. Definition of Done and implementation gate
 - Specification and shared dependencies explicitly approved.
