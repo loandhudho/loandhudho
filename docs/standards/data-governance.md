@@ -284,3 +284,14 @@ Please approve or revise:
 6. Category-specific comparison profiles, explicit conditions/units and distinct missing-value states; no invented or inferred lender values.
 7. Lead/customer PII and lead sharing remain disabled until separate legal/compliance approval.
 
+## 23. Owner approval record
+
+- **Decision:** Data Governance Standard approved as documented.
+- **Approved on:** 2026-11-02.
+- **Approved scope:** Canonical entity relationships; claim-level source evidence; financial fact and missing-value semantics; proposed freshness framework and event-triggered review; versioning/effective dating/history; staged imports; Admin operational publication/correction authority; comparison integrity; 12 implementation tasks and 28 acceptance tests.
+- **Freshness policy:** The proposed thresholds in Section 4 are approved as configurable starting defaults for implementation planning, not as a claim that rates change frequently. They are not contractual SLAs; final operational activation remains configurable and auditable. The A08 seven-day offer-expiry warning remains approved.
+- **Evidence and publication:** Official lender evidence remains the primary basis for public financial facts; secondary evidence must be attributed. Admin retains routine operational publication authority without universal maker-checker.
+- **Privacy boundary:** Lead/customer PII and lead sharing remain disabled pending separate legal/compliance approval. This standard does not authorize lead capture or lender data-sharing.
+- **Implementation:** Not started. Approval does not bypass authorization, security, retention, legal/compliance or page-specific dependencies.
+- **Testing:** All 28 acceptance tests remain Not Run.
+
