@@ -47,7 +47,7 @@ Admin is analyzed before public frontend. Page documents are created during thei
 | A12 | Leads | [leads.md](./admin/leads.md) | Deferred | Legal approval, consent and agreements |
 | A13 | Users and Roles | [users-and-roles.md](./admin/users-and-roles.md) | Owner Approved | Authentication, authorization and audit model |
 | A14 | Audit Logs | [audit-logs.md](./admin/audit-logs.md) | Owner Approved — policy-specific gates remain | Event taxonomy, append-only storage, integrity, authorization and retention policy |
-| A15 | Settings | [settings.md](./admin/settings.md) | Owner Approved | Configuration ownership/security, A13/A14 and shared standards |
+| A15 | Settings | [settings.md](./admin/settings.md) | Owner Approved | Configuration ownership/security, A13/A14 and shared standards |\n| A16 | Content Studio — Static Pages, News and Blogs | [content-studio.md](./admin/content-studio.md) | Scope Draft — Owner Review Pending | Admin Shell, authorization, CMS data model, SEO/media, legal/editorial review gates |
 
 ## 4. Public frontend page inventory
 
@@ -72,7 +72,7 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | F15 | Contact and grievance | [contact.md](./frontend/contact.md) | Not Started |
 | F16 | Privacy policy | [privacy-policy.md](./frontend/privacy-policy.md) | Not Started |
 | F17 | Terms | [terms.md](./frontend/terms.md) | Not Started |
-| F18 | Disclaimer | [disclaimer.md](./frontend/disclaimer.md) | Not Started |
+| F18 | Disclaimer | [disclaimer.md](./frontend/disclaimer.md) | Not Started |\n| F19 | News index | Defined in [FRONTEND_PAGE_PLAN.md](./FRONTEND_PAGE_PLAN.md) | Not Started |\n| F20 | News detail | Defined in [FRONTEND_PAGE_PLAN.md](./FRONTEND_PAGE_PLAN.md) | Not Started |\n| F21 | Blog index | Defined in [FRONTEND_PAGE_PLAN.md](./FRONTEND_PAGE_PLAN.md) | Not Started |\n| F22 | Blog detail | Defined in [FRONTEND_PAGE_PLAN.md](./FRONTEND_PAGE_PLAN.md) | Not Started |\n| F23 | CMS static page template | Defined in [FRONTEND_PAGE_PLAN.md](./FRONTEND_PAGE_PLAN.md) | Not Started |\n| F24 | Search results | Defined in [FRONTEND_PAGE_PLAN.md](./FRONTEND_PAGE_PLAN.md) | Not Started |
 
 ## 5. Shared standards to define
 
@@ -134,4 +134,4 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 | 2026-11-02 | Expanded Data Governance for owner review: normalized canonical entities, claim-level source evidence, explicit missing-value semantics, rates/fees/eligibility/offers rules, versioning/effective dates, freshness proposals and event triggers, staged imports, Admin publication/correction authority, comparison integrity, 12 implementation tasks and 28 acceptance tests. No code or tests started; approval pending. Advanced shared-standards focus to Data Governance. |
 
-| 2026-11-02 | Recorded owner approval of Data Governance, including source/provenance, canonical relationships, history/correction, staged imports, comparison integrity and Admin operational authority. Freshness defaults are approved as configurable starting proposals, not contractual SLAs or a claim that rates change frequently; lead/customer PII remains disabled pending separate legal/compliance approval. Added Admin Shell standard draft with responsive navigation, role-aware server-authorized navigation, session/error states, accessibility, privacy, 10 tasks and 20 acceptance tests; owner approval pending. |
+| 2026-11-02 | Recorded owner approval of Data Governance, including source/provenance, canonical relationships, history/correction, staged imports, comparison integrity and Admin operational authority. Freshness defaults are approved as configurable starting proposals, not contractual SLAs or a claim that rates change frequently; lead/customer PII remains disabled pending separate legal/compliance approval. Added Admin Shell standard draft with responsive navigation, role-aware server-authorized navigation, session/error states, accessibility, privacy, 10 tasks and 20 acceptance tests; owner approval pending. |\n| 2026-11-02 | Added A16 Admin Content Studio scope for Static Pages, News and Blogs with distinct content contracts, shared CMS workflows, role boundaries, SEO/localization/media rules, 15 implementation tasks and 30 acceptance tests; owner review pending. Added the public Frontend Page and Journey Plan covering F01–F24, shared frontend systems, seven user journeys, delivery slices and cross-page gates. Updated frontend inventory for news, blogs, CMS static-page rendering and search results. No implementation or tests started. |
