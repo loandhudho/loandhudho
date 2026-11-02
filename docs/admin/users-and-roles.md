@@ -3,7 +3,7 @@
 **Page ID:** A13 / ADM-USERS  
 **Route:** /admin/users  
 **Priority:** P0 for secure admin launch  
-**Specification status:** Documented — Owner Approval Pending  
+**Specification status:** Owner Approved  
 **Implementation status:** Not Started  
 **Tests:** 32 acceptance tests defined; all Not Run  
 **Last updated:** 2026-11-02
@@ -166,15 +166,26 @@ All tests are Not Run until implementation exists.
 | ADM-USER-T31 | UI is keyboard accessible and announces errors | Not Run |
 | ADM-USER-T32 | List/detail work on mobile and light/dark themes | Not Run |
 
-## 17. Owner decisions pending
-1. Confirm authentication provider; recommend managed identity rather than custom credential handling.
-2. Confirm one primary role per user for MVP; recommend yes, with scoped additional grants only when needed.
-3. Approve scope vocabulary and Admin delegation ceiling; recommend Admin grants only permissions/scopes they currently hold and never Super Admin.
-4. Confirm mandatory MFA for all Super Admin/Admin accounts; recommend yes, with step-up for sensitive changes.
-5. Confirm invitation destination and expiry/resend policy; recommend verified work email, single-use invitation, configurable expiry and throttled resend.
-6. Confirm whether Admin may suspend/deactivate other Admins within delegation ceiling; recommend operational user management with Super Admin and last-admin safeguards.
-7. Confirm notifications for role, permission, suspension and deactivation changes; recommend notify affected user.
-8. Confirm staff-account retention/deletion policy; recommend deactivate and retain minimal audit evidence under legal/security policy.
+## 17. Owner decisions
+
+The owner approved the documented A13 proposals on 2026-11-02:
+
+1. **Authentication:** Approved managed identity/authentication rather than custom credential handling. The specific provider remains an implementation selection and security review item.
+2. **Role assignment:** Approved one primary role per staff user for MVP; scoped additional grants may be introduced only where required and governed by the central permission model.
+3. **Scope and delegation:** Approved the principle that Admin may grant only permissions and scopes within their own effective authority and may never grant Super Admin or elevate themselves. Super Admin owns the permission catalogue and delegation structure.
+4. **MFA:** Approved mandatory MFA for all Super Admin and Admin accounts, with step-up authentication for sensitive actions where supported.
+5. **Invitations:** Approved verified work email, single-use invitations, configurable expiry and throttled resend. Exact expiry values remain a configuration/security decision.
+6. **Admin account management:** Approved Admin operational suspension/deactivation of other staff/Admin accounts only within the configured delegation ceiling, with Super Admin safeguards and protection of the last active Super Admin.
+7. **Notifications:** Approved notifying affected users of role, permission, suspension and deactivation changes, without exposing secrets.
+8. **Retention:** Approved deactivation rather than routine hard deletion, retaining only minimum necessary audit evidence under the approved legal/security retention policy; no arbitrary retention duration is set here.
+
+## 18. Owner approval record
+
+- **Decision:** A13 Users and Roles specification and its documented implementation task scope approved.
+- **Approved on:** 2026-11-02.
+- **Implementation:** Not started. Task scope is authorized for implementation only after authentication, authorization, security and shared standards/dependencies pass their gates.
+- **Testing:** All 32 acceptance tests remain Not Run.
+- **Boundary:** Staff-account administration only; customer/lead PII remains disabled pending separate legal/compliance approval.
 
 ## 18. Definition of Done and implementation gate
 Identity provider and session lifecycle selected; permission catalogue, scopes and delegation ceiling approved; all operations enforce permissions/scope server-side; invitation and lifecycle flows audited; MFA/step-up, session invalidation, self-elevation and last-Super-Admin safeguards pass; lead/customer PII remains gated; all P0/P1 tests pass with evidence and no unresolved security blocker.
