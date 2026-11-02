@@ -3,7 +3,7 @@
 **Page ID:** A09 / ADM-INTENT  
 **Route:** `/admin/intents`  
 **Phase:** 1 — Admin page analysis/specifications  
-**Status:** Documented — Owner Approval Pending  
+**Status:** Owner Approved  
 **Priority:** P1  
 **Last updated:** 2026-11-02  
 **Implementation:** Not started
@@ -285,15 +285,23 @@ All tests are **Not Run**; implementation must record actual evidence.
 | ADM-INTENT-T27 | English/Hindi public labels and examples pass localization review. | Not Run |
 | ADM-INTENT-T28 | UI is keyboard accessible, responsive and theme-compatible. | Not Run |
 
-## 16. Open owner decisions
+## 16. Owner decisions
 
-1. Approve the initial intent families/examples in §6 as a starting catalogue, or specify additions/removals.
-2. Confirm supported search inputs for MVP: English, Hindi Devanagari and Romanized Hindi/Hinglish are proposed.
-3. Confirm whether query analytics may retain raw query text; recommended default is no raw-query retention, only minimized/aggregated diagnostics with a defined retention policy.
-4. Confirm whether Admin may publish mappings directly (recommended, consistent with routine Admin authority) while Super Admin retains structural configuration.
-5. Approve PostgreSQL full-text + `pg_trgm` as MVP search approach; any dedicated search engine is a later evidence-based decision.
+The owner approved the documented A09 proposals on 2026-11-02:
 
-These are proposals, not approved policy. Defaults can be accepted together or changed.
+1. **Initial intent catalogue:** Approved the initial intent families and examples in §6 as the starting catalogue; Super Admin retains ownership of structural catalogue changes.
+2. **Search inputs:** Approved English, Hindi (Devanagari) and Romanized Hindi/Hinglish for MVP, with locale-aware normalization and conservative matching.
+3. **Query privacy:** Approved no raw-query retention by default. Use minimized/aggregated diagnostics only, subject to a separately defined retention and privacy policy.
+4. **Publishing authority:** Approved Admin direct operational review/approval/publication of intent mappings within existing structures; Super Admin retains structural configuration authority.
+5. **Search technology:** Approved PostgreSQL full-text search plus `pg_trgm` for MVP; a dedicated search engine requires later evidence-based review.
+
+## 17. Owner approval record
+
+- **Decision:** A09 Intents and Search Mappings specification and its documented implementation task scope approved.
+- **Approved on:** 2026-11-02.
+- **Implementation:** Not started. Task scope is authorized for implementation only after shared standards and dependencies pass their gates.
+- **Testing:** All 28 acceptance tests remain Not Run.
+- **Boundary:** Search preview remains read-only; no lead/application side effects or raw query retention by default.
 
 ## 17. Definition of Done
 
