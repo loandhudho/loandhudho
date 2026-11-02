@@ -155,18 +155,29 @@ All tests are Not Run until implementation exists.
 | ADM-LAND-T29 | Keyboard/screen-reader behavior meets accessibility standard | Not Run |
 | ADM-LAND-T30 | Mobile list, editor and preview workflows work | Not Run |
 
-## 16. Owner decisions pending
-1. Confirm page types and MVP scope; recommendation: category + intent pages first.
-2. Approve typed block allowlist and prohibition on custom HTML/JavaScript; recommended.
-3. Confirm mandatory publication gates versus warnings.
-4. Confirm English-first release and native Hindi review requirement.
-5. Confirm routine Admin publishing and SEO Manager scope under shared RBAC.
-6. Confirm structured-data types; recommend only those matching visible content.
-7. Approve aggregate analytics metrics and retention/consent policy.
-8. Decide whether redirect bulk import is needed for MVP; recommend defer.
+## 16. Owner decisions
+
+The owner approved the documented A10 proposals on 2026-11-02:
+
+1. **Page types and MVP scope:** Approved category and intent landing pages as the first MVP types; other documented types remain available for later rollout.
+2. **Content blocks:** Approved a typed, allowlisted block model and prohibition on arbitrary custom HTML/JavaScript.
+3. **Publication quality:** Approved mandatory blocking gates for broken canonical references, invalid metadata/slug conflicts, missing required content and material factual/source defects; editorial quality warnings remain visible and actionable.
+4. **Localization:** Approved English-first release and native Hindi review before Hindi publication.
+5. **Publishing authority:** Approved routine Admin publishing within operational authority and SEO Manager editorial/SEO control under server-side RBAC; canonical lender/product facts remain protected.
+6. **Structured data:** Approved only structured-data types supported by the visible page content.
+7. **Analytics:** Approved aggregate analytics only for MVP, with retention/consent rules defined in the shared privacy policy before collection.
+8. **Redirect import:** Approved deferring bulk redirect import from MVP.
+
+## 17. Owner approval record
+
+- **Decision:** A10 Landing Pages specification and its documented implementation task scope approved.
+- **Approved on:** 2026-11-02.
+- **Implementation:** Not started. Task scope is authorized for implementation only after shared standards and dependencies pass their gates.
+- **Testing:** All 30 acceptance tests remain Not Run.
+- **Boundary:** Landing pages do not create or mutate canonical lender/product facts, and no lead capture or PII is authorized.
 
 ## 17. Approval and implementation gate
-**Status:** Documented — Owner Approval Pending.  
+**Status:** Owner Approved.  
 **Owner approval:** Pending.  
 **Implementation:** Not Started.  
 **Testing:** 30 acceptance tests defined; all Not Run.
