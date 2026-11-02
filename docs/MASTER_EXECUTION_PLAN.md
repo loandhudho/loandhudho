@@ -87,7 +87,7 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 |---|---|---|
 | Admin navigation, shell and responsive behavior | [admin-shell.md](./standards/admin-shell.md) | Owner Approved — implementation dependencies remain |
 | Authentication, roles and permission matrix | [authorization.md](./standards/authorization.md) | Owner Approved — implementation gates remain |
-| Design tokens, components, accessibility and themes | [design-system.md](./standards/design-system.md) | Not Started |
+| Design tokens, components, accessibility and themes | [design-system.md](./standards/design-system.md) | Draft — Owner Review Pending |
 | Data provenance, freshness, review and history | [data-governance.md](./standards/data-governance.md) | Owner Approved — implementation gates remain |
 | API conventions, validation and error model | [api-conventions.md](./standards/api-conventions.md) | Not Started |
 | Test strategy and release gates | [testing-strategy.md](./standards/testing-strategy.md) | Not Started |
@@ -103,8 +103,8 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 7. Current focus
 
 **Active focus:** Shared standards — Design System  
-**Current status:** Data Governance was owner-approved on 2026-11-02. Its 12 implementation tasks and 28 acceptance tests remain Not Started/Not Run; approval does not activate lead/customer PII or bypass legal/security gates. The Admin Shell standard was owner-approved on 2026-11-02. Its 10 implementation tasks and 20 acceptance tests remain Not Started/Not Run; no shell implementation has started.  
-**Next action:** Define the Design System, then API Conventions and Testing Strategy. Obtain owner review of A16 Content Studio. Begin page-by-page frontend specifications with F01 Homepage and Intent Search when shared frontend standards are sufficiently defined. A12 Leads remains deferred pending legal/compliance approval.
+**Current status:** Design System draft created for owner review; 13 implementation tasks and 24 acceptance tests remain Not Started/Not Run. Data Governance was owner-approved on 2026-11-02. Its 12 implementation tasks and 28 acceptance tests remain Not Started/Not Run; approval does not activate lead/customer PII or bypass legal/security gates. The Admin Shell standard was owner-approved on 2026-11-02. Its 10 implementation tasks and 20 acceptance tests remain Not Started/Not Run; no shell implementation has started.  
+**Next action:** Obtain owner review of the Design System, then define API Conventions and Testing Strategy. Obtain owner review of A16 Content Studio. Begin page-by-page frontend specifications with F01 Homepage and Intent Search when shared frontend standards are sufficiently defined. A12 Leads remains deferred pending legal/compliance approval.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -145,3 +145,5 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-02 | Added A16 Admin Content Studio scope for Static Pages, News and Blogs with distinct content contracts, shared CMS workflows, role boundaries, SEO/localization/media rules, 15 implementation tasks and 30 acceptance tests; owner review pending. Added the public Frontend Page and Journey Plan covering F01–F24, shared frontend systems, seven user journeys, delivery slices and cross-page gates. Updated frontend inventory for news, blogs, CMS static-page rendering and search results. No implementation or tests started. |
 
 | 2026-11-02 | Recorded owner approval of the Admin Shell standard: desktop sidebar/mobile drawer, five navigation groups, server-authorized navigation, Leads exclusion pending legal approval, separate identity layout, omission of undefined global search/notifications and WCAG 2.2 AA target. Updated shared-standard status and advanced focus to Design System. Shell implementation and all 20 acceptance tests remain Not Started/Not Run. |
+
+| 2026-11-02 | Added the shared Design System standard draft for public and admin surfaces: semantic light/dark tokens, English/Hindi typography, responsive layout, reusable components, financial data presentation, INR/IST conventions, WCAG 2.2 AA, privacy boundaries, 13 implementation tasks and 24 acceptance tests. Owner review pending; no implementation or tests started. |
