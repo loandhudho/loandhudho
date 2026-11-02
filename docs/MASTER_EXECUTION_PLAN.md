@@ -78,10 +78,10 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 | Standard | Document | Status |
 |---|---|---|
-| Admin navigation, shell and responsive behavior | [admin-shell.md](./standards/admin-shell.md) | Not Started |
+| Admin navigation, shell and responsive behavior | [admin-shell.md](./standards/admin-shell.md) | Draft — Owner Approval Pending |
 | Authentication, roles and permission matrix | [authorization.md](./standards/authorization.md) | Owner Approved — implementation gates remain |
 | Design tokens, components, accessibility and themes | [design-system.md](./standards/design-system.md) | Not Started |
-| Data provenance, freshness, review and history | [data-governance.md](./standards/data-governance.md) | Draft — Owner Approval Pending |
+| Data provenance, freshness, review and history | [data-governance.md](./standards/data-governance.md) | Owner Approved — implementation gates remain |
 | API conventions, validation and error model | [api-conventions.md](./standards/api-conventions.md) | Not Started |
 | Test strategy and release gates | [testing-strategy.md](./standards/testing-strategy.md) | Not Started |
 
@@ -95,9 +95,9 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 ## 7. Current focus
 
-**Active focus:** Shared standards — Data Governance  
-**Current status:** The Data Governance standard has been expanded for owner review with canonical entity relationships, claim-level provenance, financial fact semantics, freshness and event-triggered review, staged imports, Admin publication authority, correction/history rules, comparison integrity, 12 implementation tasks and 28 acceptance tests. The standard remains Draft — Owner Approval Pending; all tests are Not Run and no implementation has started. Proposed freshness thresholds remain proposals except the previously approved A08 offer-expiry warning. A12 Leads remains deferred.  
-**Next action:** Obtain owner review/approval of Data Governance, then define Admin Shell, Design System, API Conventions and Testing Strategy before implementation. A12 Leads remains deferred pending legal/compliance approval.
+**Active focus:** Shared standards — Admin Shell  
+**Current status:** Data Governance was owner-approved on 2026-11-02. Its 12 implementation tasks and 28 acceptance tests remain Not Started/Not Run; approval does not activate lead/customer PII or bypass legal/security gates. The Admin Shell standard is now drafted for owner review with desktop/mobile navigation, role-aware permission-filtered navigation, identity/session states, accessibility, privacy boundaries, 10 implementation tasks and 20 acceptance tests. No shell implementation or tests have started.  
+**Next action:** Obtain owner review/approval of Admin Shell, then define Design System, API Conventions and Testing Strategy before implementation. A12 Leads remains deferred pending legal/compliance approval.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -133,3 +133,5 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-02 | Recorded owner approval of the detailed Authorization standard, including All / Assigned / Own / Aggregate scopes and the Admin delegation ceiling. Updated shared-standard status and advanced focus to Data Governance. Authentication provider, session/step-up details, security override review and legal/PII activation remain separate implementation gates. Authorization code has not started and all 18 tests remain Not Run. |
 
 | 2026-11-02 | Expanded Data Governance for owner review: normalized canonical entities, claim-level source evidence, explicit missing-value semantics, rates/fees/eligibility/offers rules, versioning/effective dates, freshness proposals and event triggers, staged imports, Admin publication/correction authority, comparison integrity, 12 implementation tasks and 28 acceptance tests. No code or tests started; approval pending. Advanced shared-standards focus to Data Governance. |
+
+| 2026-11-02 | Recorded owner approval of Data Governance, including source/provenance, canonical relationships, history/correction, staged imports, comparison integrity and Admin operational authority. Freshness defaults are approved as configurable starting proposals, not contractual SLAs or a claim that rates change frequently; lead/customer PII remains disabled pending separate legal/compliance approval. Added Admin Shell standard draft with responsive navigation, role-aware server-authorized navigation, session/error states, accessibility, privacy, 10 tasks and 20 acceptance tests; owner approval pending. |
