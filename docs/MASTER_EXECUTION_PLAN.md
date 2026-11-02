@@ -39,7 +39,7 @@ Admin is analyzed before public frontend. Page documents are created during thei
 | A04 | Loan Products | [loan-products.md](./admin/loan-products.md) | Owner Approved | Institutions and categories |
 | A05 | Rates and History | [rates.md](./admin/rates.md) | Owner Approved | Products and source records |
 | A06 | Fees and Charges | [fees.md](./admin/fees.md) | Owner Approved | Products, rates boundary and sources |
-| A07 | Eligibility Rules | [eligibility.md](./admin/eligibility.md) | Documented — Owner Approval Pending | Products, rates and fees |
+| A07 | Eligibility Rules | [eligibility.md](./admin/eligibility.md) | Owner Approved | Products, rates and fees |
 | A08 | Offers | [offers.md](./admin/offers.md) | Documented — Owner Approval Pending | Products, rates, fees, eligibility and sources |
 | A09 | Intents and Search Mappings | [intents.md](./admin/intents.md) | Documented — Owner Approval Pending | Categories, product records and bilingual search |
 | A10 | Landing Pages | [landing-pages.md](./admin/landing-pages.md) | Documented — Owner Approval Pending | Intents/categories and SEO |
@@ -88,16 +88,16 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 ## 6. Progress summary
 
 - Global rules: drafted; awaiting owner approval.
-- Page specs documented: 14 (A01–A11 and A13–A15). A01–A06, A14 and A15 are owner-approved; A07–A11 and A13 await owner approval. A12 Leads remains deferred pending legal/compliance approval.
-- Pages approved for coding: 8 (A01–A06, A14 and A15); implementation remains gated by shared standards and dependencies, with A14 and A15 policy/security-specific gates subject to their recorded specifications.
+- Page specs documented: 14 (A01–A11 and A13–A15). A01–A07, A14 and A15 are owner-approved; A08–A11 and A13 await owner approval. A12 Leads remains deferred pending legal/compliance approval.
+- Pages approved for coding: 9 (A01–A07, A14 and A15); implementation remains gated by shared standards and dependencies, with A14 and A15 policy/security-specific gates subject to their recorded specifications.
 - Pages implemented and verified under this workflow: 0.
 - Lead management: deferred pending legal/compliance gate.
 
 ## 7. Current focus
 
 **Active focus:** Admin specification approvals and shared standards  
-**Current status:** A01–A06, A14 and A15 owner-approved; A07–A11 and A13 documented — Owner Approval Pending. A14 and A15 retain policy/security-specific gates recorded in their specifications.  
-**Next action:** Review A07 Eligibility Rules for owner approval, then resolve the remaining documented admin-page approvals and shared standards before implementation. A12 Leads remains deferred pending legal/compliance approval.
+**Current status:** A01–A07, A14 and A15 owner-approved; A08–A11 and A13 documented — Owner Approval Pending. A14 and A15 retain policy/security-specific gates recorded in their specifications.  
+**Next action:** Review A08 Offers for owner approval, then resolve the remaining documented admin-page approvals and shared standards before implementation. A12 Leads remains deferred pending legal/compliance approval.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -123,3 +123,5 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-02 | Recorded owner acceptance of all eight A14 recommendations: operational audit visibility for Admin with security-event grants controlled separately; narrowly scoped IP/user-agent collection subject to privacy approval; retention classes without guessed durations; export and annotations deferred from MVP; append-only/hash/checkpoint integrity design; fail-closed critical mutations; and narrowly scoped future two-person controls subject to security review. Marked A14 owner-approved with explicit policy gates and advanced focus to A15 Settings. |
 
 | 2026-11-02 | Recorded owner approval of A15 Settings; verified the updated page specification and advanced the tracker focus to A07 Eligibility Rules owner review. A15 remains unimplemented and its proposed policy decisions and external integration gates remain distinct from page-specification approval. |
+
+| 2026-11-02 | Recorded owner approval of A07 Eligibility Rules, including the typed criterion catalogue, distinct requirement-strength states, sourced numeric units/bases, explicit ALL/ANY logic, proposed 90-day reminder / 180-day stale threshold, and validated CSV import with preview/dry-run and Admin-controlled publication. Updated the approved-page count to nine and advanced focus to A08 Offers. A07 remains unimplemented; all 29 acceptance tests remain Not Run. |
