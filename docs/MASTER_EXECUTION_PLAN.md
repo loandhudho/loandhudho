@@ -95,9 +95,9 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 ## 7. Current focus
 
-**Active focus:** Shared standards — authorization  
-**Current status:** All 14 documented admin page specifications (A01–A11 and A13–A15) and the detailed Authorization standard are owner-approved. Authorization includes 12 implementation tasks and 18 acceptance tests; tests remain Not Run and implementation has not started. Authentication-provider selection, session policy, security review and legal/PII gates remain open. A12 Leads remains deferred.  
-**Next action:** Complete the Data Governance standard for owner review, then define Admin Shell, Design System, API Conventions and Testing Strategy before implementation. A12 Leads remains deferred pending legal/compliance approval.
+**Active focus:** Shared standards — Data Governance  
+**Current status:** The Data Governance standard has been expanded for owner review with canonical entity relationships, claim-level provenance, financial fact semantics, freshness and event-triggered review, staged imports, Admin publication authority, correction/history rules, comparison integrity, 12 implementation tasks and 28 acceptance tests. The standard remains Draft — Owner Approval Pending; all tests are Not Run and no implementation has started. Proposed freshness thresholds remain proposals except the previously approved A08 offer-expiry warning. A12 Leads remains deferred.  
+**Next action:** Obtain owner review/approval of Data Governance, then define Admin Shell, Design System, API Conventions and Testing Strategy before implementation. A12 Leads remains deferred pending legal/compliance approval.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -131,3 +131,5 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-02 | Expanded the Authorization standard into an implementation-ready policy draft covering centralized deny-by-default decisions, permission catalogue/action semantics, record scopes, field redaction, four role baselines, Admin delegation limits, MFA/session lifecycle, audit/fail-closed behavior, enforcement coverage, 12 implementation tasks and 18 acceptance tests. No code or tests started; detailed owner approval is pending. Set shared-standards focus to Authorization review. |
 
 | 2026-11-02 | Recorded owner approval of the detailed Authorization standard, including All / Assigned / Own / Aggregate scopes and the Admin delegation ceiling. Updated shared-standard status and advanced focus to Data Governance. Authentication provider, session/step-up details, security override review and legal/PII activation remain separate implementation gates. Authorization code has not started and all 18 tests remain Not Run. |
+
+| 2026-11-02 | Expanded Data Governance for owner review: normalized canonical entities, claim-level source evidence, explicit missing-value semantics, rates/fees/eligibility/offers rules, versioning/effective dates, freshness proposals and event triggers, staged imports, Admin publication/correction authority, comparison integrity, 12 implementation tasks and 28 acceptance tests. No code or tests started; approval pending. Advanced shared-standards focus to Data Governance. |
