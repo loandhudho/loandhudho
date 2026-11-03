@@ -1,7 +1,7 @@
 # LoanDhudho — Unified Page-by-Page Execution Plan
 
 **Status:** Active execution tracker  
-**Last updated:** 2026-11-02  
+**Last updated:** 2026-11-04  
 **Method:** Document → approve → code → test → update status → choose next task
 
 ## 1. Operating model
@@ -89,8 +89,8 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | Authentication, roles and permission matrix | [authorization.md](./standards/authorization.md) | Owner Approved — implementation gates remain |
 | Design tokens, components, accessibility and themes | [design-system.md](./standards/design-system.md) | Owner Approved — implementation dependencies remain |
 | Data provenance, freshness, review and history | [data-governance.md](./standards/data-governance.md) | Owner Approved — implementation gates remain |
-| API conventions, validation and error model | [api-conventions.md](./standards/api-conventions.md) | Draft — Owner Review Pending |
-| Test strategy and release gates | [testing-strategy.md](./standards/testing-strategy.md) | Not Started |
+| API conventions, validation and error model | [api-conventions.md](./standards/api-conventions.md) | Owner Approved — implementation dependencies remain |
+| Test strategy and release gates | [testing-strategy.md](./standards/testing-strategy.md) | Draft — Owner Review Pending |
 
 ## 6. Progress summary
 
@@ -102,9 +102,9 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 ## 7. Current focus
 
-**Active focus:** Shared standards — API Conventions  
-**Current status:** Design System was owner-approved on 2026-11-04; its 13 implementation tasks and 24 acceptance tests remain Not Started/Not Run. API Conventions is documented as a draft for owner review; its 14 implementation tasks and 26 acceptance tests remain Not Started/Not Run. Data Governance was owner-approved on 2026-11-02. Its 12 implementation tasks and 28 acceptance tests remain Not Started/Not Run; approval does not activate lead/customer PII or bypass legal/security gates. The Admin Shell standard was owner-approved on 2026-11-02. Its 10 implementation tasks and 20 acceptance tests remain Not Started/Not Run; no shell implementation has started.  
-**Next action:** Obtain owner review of API Conventions. After approval, define Testing Strategy, then begin page-by-page frontend specifications with F01 Homepage and Intent Search when shared standards are sufficiently defined. Obtain owner review of A16 Content Studio. A12 Leads remains deferred pending legal/compliance approval.
+**Active focus:** Shared standards — Testing Strategy  
+**Current status:** API Conventions was owner-approved on 2026-11-04; its 14 implementation tasks and 26 acceptance tests remain Not Started/Not Run. Testing Strategy is documented as a draft for owner review with 16 implementation tasks and 30 acceptance tests, all Not Started/Not Run. Design System remains owner-approved with 13 implementation tasks and 24 acceptance tests Not Started/Not Run. Data Governance remains owner-approved with 12 implementation tasks and 28 acceptance tests Not Started/Not Run; approval does not activate lead/customer PII or bypass legal/security gates. Admin Shell remains owner-approved with 10 implementation tasks and 20 acceptance tests Not Started/Not Run. No application implementation or test execution has started.  
+**Next action:** Obtain owner review of Testing Strategy. After approval, begin page-by-page frontend specifications with F01 Homepage and Intent Search, subject to remaining implementation dependencies. Obtain owner review of A16 Content Studio separately. A12 Leads remains deferred pending legal/compliance approval.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -149,3 +149,4 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-02 | Added the shared Design System standard draft for public and admin surfaces: semantic light/dark tokens, English/Hindi typography, responsive layout, reusable components, financial data presentation, INR/IST conventions, WCAG 2.2 AA, privacy boundaries, 13 implementation tasks and 24 acceptance tests. Owner review pending; no implementation or tests started. |
 
 | 2026-11-04 | Recorded owner approval of the Design System standard (13 implementation tasks and 24 acceptance tests remain Not Started/Not Run). Added API Conventions standard draft with route/versioning, DTO/error contracts, authorization, pagination, concurrency/idempotency, rate limits, audit/privacy, caching, imports/exports, 14 tasks and 26 acceptance tests; owner review pending. |
+| 2026-11-04 | Recorded owner approval of API Conventions (14 implementation tasks and 26 acceptance tests remain Not Started/Not Run). Added Testing Strategy draft covering test layers, synthetic fixtures, financial/data integrity, authorization/privacy, security, accessibility/localization, CI/release gates, flaky tests, coverage and 16 tasks/30 acceptance tests; owner review pending. Advanced shared-standards focus to Testing Strategy. No application code or tests have started. |
