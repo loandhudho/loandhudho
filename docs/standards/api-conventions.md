@@ -1,6 +1,6 @@
 # LoanDhudho — API Conventions Standard
 
-**Status:** Draft — Owner Review Pending  
+**Status:** Owner Approved — implementation dependencies remain  
 **Last updated:** 2026-11-04  
 **Applies to:** Internal application APIs, route handlers, server actions and service boundaries.  
 **Implementation:** Not Started
@@ -263,7 +263,7 @@ Please approve or revise:
 
 ## 19. Approval and implementation record
 
-- **Owner decision:** Pending.
+- **Owner decision:** Approved as documented on 2026-11-04.
 - **Implementation:** Not Started.
 - **Testing:** All 26 acceptance tests remain Not Run.
 - **Dependencies:** Approved Authorization, Data Governance and Design System; authentication/session architecture; Audit Logs policy; repository architecture inspection; Testing Strategy.
