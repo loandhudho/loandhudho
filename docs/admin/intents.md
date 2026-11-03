@@ -18,7 +18,7 @@ Examples:
 - “Paise ki zaroorat hai” / “mujhe personal loan chahiye” → Personal Loan.
 - “Need money for shop expansion” → potentially Business Loan and/or Loan Against Property, depending on collateral and context; do not force one result when intent is ambiguous.
 
-The system must support English, Hindi (Devanagari), common Romanized Hindi/Hinglish, spelling variants, synonyms, colloquial phrases and safe typo tolerance. It should return relevant results without inventing eligibility, lender facts or user intent.
+The system must support English and Hindi (Devanagari) only, including reviewed spelling variants, synonyms, colloquial phrases and safe typo tolerance. Romanized Hindi and Hinglish are out of scope. It should return relevant results without inventing eligibility, lender facts or user intent.
 
 ## 2. Scope and boundaries
 
@@ -84,14 +84,14 @@ An intent describes a goal, not a lender product. Multiple intents may map to on
 
 Candidate fields:
 - immutable phrase-mapping ID and intent ID;
-- locale/language tag (e.g. `en-IN`, `hi-IN`, Romanized Hindi/Hinglish configured separately);
+- locale/language tag (`en-IN` or `hi-IN`);
 - original phrase and normalized phrase;
 - phrase kind: exact phrase, synonym, colloquial expression, transliteration, spelling variant or reviewed typo;
 - optional token/phrase matching rules;
 - ambiguity notes, source/reviewer and confidence/review state;
 - active dates, version and audit metadata.
 
-Preserve original script and phrase. Normalization may standardize Unicode, whitespace, punctuation and case where appropriate, but must not destroy meaningful Hindi characters, word boundaries or negation. Romanized Hindi spellings vary; maintain reviewed variants rather than assuming one transliteration is canonical. Avoid broad fuzzy matching that maps unrelated queries.
+Preserve original script and phrase. Normalization may standardize Unicode, whitespace, punctuation and case where appropriate, but must not destroy meaningful Hindi characters, word boundaries or negation. Do not add Romanized Hindi or Hinglish phrase variants. Avoid broad fuzzy matching that maps unrelated queries.
 
 ### 5.3 Intent-to-category mapping
 
@@ -148,7 +148,7 @@ The catalogue must not imply every lender offers every use case. Category mappin
 
 ### 7.2 Search technology
 
-MVP direction: PostgreSQL full-text search plus `pg_trgm`, with explicit locale-aware normalization and reviewed phrase dictionaries. Do not assume English stemming works for Hindi. Store language/script metadata and test Devanagari and Romanized Hindi independently. Add dedicated Hindi tokenization or an external search engine only after benchmarked evidence shows the MVP is insufficient and the owner approves the dependency.
+MVP direction: PostgreSQL full-text search plus `pg_trgm`, with explicit locale-aware normalization and reviewed phrase dictionaries. Do not assume English stemming works for Hindi. Store language/script metadata and test English and Devanagari Hindi independently. Add dedicated Hindi tokenization or an external search engine only after benchmarked evidence shows the MVP is insufficient and the owner approves the dependency.
 
 Use deterministic, inspectable ranking initially. Any learned ranking must be evaluated for relevance, bias, explainability, privacy and rollback before release.
 
@@ -182,7 +182,7 @@ Measure aggregate search success, zero-result rate, reformulation rate, mapping 
 
 Intent labels/descriptions should reflect natural user language, not keyword stuffing. Keep user-facing examples distinct from hidden synonyms. SEO Manager may edit approved editorial text and locale phrases but cannot create canonical categories, invent product availability or override structured mappings without permission.
 
-English is default; Hindi is supported. Maintain locale-specific phrase records rather than machine-translating every phrase. Hindi public text requires native-quality review. Romanized Hindi is a search input aid; do not treat it as the preferred public display language unless explicitly approved. Keep language/script variants connected to one concept and prevent duplicate indexable pages. Landing-page creation and canonical/metadata rules belong to A10.
+English is default; Hindi (Devanagari) is supported. Maintain locale-specific phrase records rather than machine-translating every phrase. Hindi public text requires native-quality review. Romanized Hindi and Hinglish are not supported input or display languages. Keep language/script variants connected to one concept and prevent duplicate indexable pages. Landing-page creation and canonical/metadata rules belong to A10.
 
 ## 10. Validation, lifecycle and versioning
 
@@ -239,7 +239,7 @@ All tasks are **Not Started**. This document does not authorize coding.
 | ADM-INTENT-004 | P1 | Build phrase mapping editor with locale/script metadata | Localization | Not Started |
 | ADM-INTENT-005 | P1 | Build intent-to-category mapping editor using A03 references | A03 | Not Started |
 | ADM-INTENT-006 | P1 | Add duplicate and near-duplicate detection | Search normalization | Not Started |
-| ADM-INTENT-007 | P1 | Implement conservative English/Hindi/Romanized Hindi normalization | Search design | Not Started |
+| ADM-INTENT-007 | P1 | Implement conservative English/Hindi normalization | Search design | Not Started |
 | ADM-INTENT-008 | P1 | Implement PostgreSQL full-text and pg_trgm candidate matching | Database/search standards | Not Started |
 | ADM-INTENT-009 | P1 | Implement deterministic relevance ranking and explanations | Mapping model | Not Started |
 | ADM-INTENT-010 | P1 | Implement ambiguity, negation and clarification behavior | Search behavior | Not Started |
@@ -290,7 +290,7 @@ All tests are **Not Run**; implementation must record actual evidence.
 The owner approved the documented A09 proposals on 2026-11-02:
 
 1. **Initial intent catalogue:** Approved the initial intent families and examples in §6 as the starting catalogue; Super Admin retains ownership of structural catalogue changes.
-2. **Search inputs:** Approved English, Hindi (Devanagari) and Romanized Hindi/Hinglish for MVP, with locale-aware normalization and conservative matching.
+2. **Search inputs:** Approved English and Hindi (Devanagari) only for MVP, with locale-aware normalization and conservative matching; Romanized Hindi/Hinglish are excluded.
 3. **Query privacy:** Approved no raw-query retention by default. Use minimized/aggregated diagnostics only, subject to a separately defined retention and privacy policy.
 4. **Publishing authority:** Approved Admin direct operational review/approval/publication of intent mappings within existing structures; Super Admin retains structural configuration authority.
 5. **Search technology:** Approved PostgreSQL full-text search plus `pg_trgm` for MVP; a dedicated search engine requires later evidence-based review.
@@ -298,13 +298,13 @@ The owner approved the documented A09 proposals on 2026-11-02:
 ## 17. Owner approval record
 
 - **Decision:** A09 Intents and Search Mappings specification and its documented implementation task scope approved.
-- **Approved on:** 2026-11-02.
+- **Approved on:** 2026-11-02; language scope amended by owner on 2026-11-04.
 - **Implementation:** Not started. Task scope is authorized for implementation only after shared standards and dependencies pass their gates.
 - **Testing:** All 28 acceptance tests remain Not Run.
 - **Boundary:** Search preview remains read-only; no lead/application side effects or raw query retention by default.
 
 ## 17. Definition of Done
 
-Approved intent/mapping structures and search behavior implemented; canonical categories remain separate and unchanged; role permissions enforced server-side; English/Hindi/Romanized Hindi regression suite passes; ambiguity/negation and relevance controls verified; preview has no side effects; aggregate diagnostics meet privacy policy; publication/version/rollback audited; accessibility, responsive, localization and theme checks pass; tracker reflects actual implementation/test status.
+Approved intent/mapping structures and search behavior implemented; canonical categories remain separate and unchanged; role permissions enforced server-side; English/Hindi regression suite passes; ambiguity/negation and relevance controls verified; preview has no side effects; aggregate diagnostics meet privacy policy; publication/version/rollback audited; accessibility, responsive, localization and theme checks pass; tracker reflects actual implementation/test status.
 
-**Current outcome:** A09 is documented with 16 implementation tasks and 28 acceptance tests. Owner approval pending. No code or tests started.
+**Current outcome:** A09 is owner-approved with English and Hindi (Devanagari) as the only supported languages; 16 implementation tasks and 28 acceptance tests remain Not Started/Not Run. No code or tests started.
