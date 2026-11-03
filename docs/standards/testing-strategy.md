@@ -1,6 +1,6 @@
 # LoanDhudho — Testing Strategy Standard
 
-**Status:** Draft — Owner Review Pending  
+**Status:** Owner Approved — implementation dependencies remain  
 **Last updated:** 2026-11-04  
 **Applies to:** Public marketplace, admin application, APIs, shared services, data workflows and CI/release pipelines.  
 **Implementation:** Not Started
@@ -185,18 +185,18 @@ All tests begin as **Not Run**.
 ## 14. Owner review decisions
 
 Please approve or revise:
-1. The test pyramid and responsibilities across unit, integration, API/contract, E2E, security/privacy and accessibility/visual testing.
-2. Deterministic synthetic fixtures only; no production PII or real credentials in test environments.
-3. Required negative authorization tests, financial/data integrity tests and continued exclusion of lead/customer PII.
-4. CI pull-request gates and stricter release criteria for P0, security, audit, accessibility and compliance.
-5. Flaky-test quarantine policy, evidence recording and status discipline.
-6. Proposed 80% line-coverage target for core domain/service logic, with critical branch tests; tune after baseline measurement.
-7. Automated plus manual accessibility/localization checks and visual regression as a supplementary control.
-8. No live lender integrations or production customer flows in ordinary automated tests.
+1. Approved: test pyramid and responsibilities across unit, integration, API/contract, E2E, security/privacy and accessibility/visual testing.
+2. Approved: deterministic synthetic fixtures only; no production PII or real credentials in test environments.
+3. Approved: negative authorization tests, financial/data integrity tests and continued exclusion of lead/customer PII.
+4. Approved: CI pull-request gates and stricter release criteria for P0, security, audit, accessibility and compliance.
+5. Approved: flaky-test quarantine policy, evidence recording and status discipline.
+6. Approved as an initial target: 80% line coverage for core domain/service logic, with critical branch tests; review against baseline measurement.
+7. Approved: automated plus manual accessibility/localization checks and visual regression as a supplementary control.
+8. Approved: no live lender integrations or production customer flows in ordinary automated tests.
 
 ## 15. Approval and implementation record
 
-- **Owner decision:** Pending.
+- **Owner decision:** Approved as documented on 2026-11-04.
 - **Implementation:** Not Started.
 - **Testing:** All 30 acceptance tests remain Not Run.
 - **Dependencies:** Approved Authorization, Data Governance, Admin Shell, Design System and API Conventions; repository architecture/dependency inspection; authentication/session decisions; legal/compliance gates.
