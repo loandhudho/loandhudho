@@ -56,7 +56,7 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 | Order | Page | Specification | Status |
 |---:|---|---|---|
-| F01 | Homepage and intent search | [F01-homepage-intent-search.md](./frontend/F01-homepage-intent-search.md) | Draft — Owner Review Pending |
+| F01 | Homepage and intent search | [F01-homepage-intent-search.md](./frontend/F01-homepage-intent-search.md) | Owner Approved |
 | F02 | All loan categories | [loans-index.md](./frontend/loans-index.md) | Not Started |
 | F03 | Loan category detail | [loan-category.md](./frontend/loan-category.md) | Not Started |
 | F04 | Loan product detail | [loan-product-detail.md](./frontend/loan-product-detail.md) | Not Started |
@@ -90,7 +90,7 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | Design tokens, components, accessibility and themes | [design-system.md](./standards/design-system.md) | Owner Approved — implementation dependencies remain |
 | Data provenance, freshness, review and history | [data-governance.md](./standards/data-governance.md) | Owner Approved — implementation gates remain |
 | API conventions, validation and error model | [api-conventions.md](./standards/api-conventions.md) | Owner Approved — implementation dependencies remain |
-| Test strategy and release gates | [testing-strategy.md](./standards/testing-strategy.md) | Draft — Owner Review Pending |
+| Test strategy and release gates | [testing-strategy.md](./standards/testing-strategy.md) | Owner Approved — implementation dependencies remain |
 
 ## 6. Progress summary
 
@@ -102,9 +102,9 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 ## 7. Current focus
 
-**Active focus:** Public frontend specifications — F01 Homepage and Intent Search  
-**Current status:** Testing Strategy was owner-approved on 2026-11-04, including the initial 80% core domain/service line-coverage target subject to baseline review; its 16 implementation tasks and 30 acceptance tests remain Not Started/Not Run. API Conventions remains owner-approved with 14 tasks and 26 tests Not Started/Not Run. Design System remains owner-approved with 13 tasks and 24 tests Not Started/Not Run. Data Governance remains owner-approved with 12 tasks and 28 tests Not Started/Not Run; approval does not activate lead/customer PII or bypass legal/security gates. Admin Shell remains owner-approved with 10 tasks and 20 tests Not Started/Not Run. F01 Homepage and Intent Search specification has been drafted for owner review with 12 implementation tasks and 24 acceptance tests, all Not Started/Not Run. No application implementation or test execution has started.  
-**Next action:** Obtain owner review of F01 Homepage and Intent Search. Continue page-by-page frontend specifications in the approved sequence after F01 approval. Obtain owner review of A16 Content Studio separately. A12 Leads remains deferred pending legal/compliance approval.
+**Active focus:** Public frontend specifications — F02 All Loan Categories  
+**Current status:** Testing Strategy was owner-approved on 2026-11-04, including the initial 80% core domain/service line-coverage target subject to baseline review; its 16 implementation tasks and 30 acceptance tests remain Not Started/Not Run. API Conventions remains owner-approved with 14 tasks and 26 tests Not Started/Not Run. Design System remains owner-approved with 14 tasks and 24 tests Not Started/Not Run. Data Governance remains owner-approved with 12 tasks and 28 tests Not Started/Not Run; approval does not activate lead/customer PII or bypass legal/security gates. Admin Shell remains owner-approved with 10 tasks and 20 tests Not Started/Not Run. F01 Homepage and Intent Search is owner-approved with 12 implementation tasks and 24 acceptance tests, all Not Started/Not Run. Its only supported languages are English and Hindi (Devanagari); Romanized Hindi and Hinglish are excluded. A09 language scope has been amended accordingly. No application implementation or test execution has started.  
+**Next action:** Draft F02 All Loan Categories for owner review. Continue page-by-page frontend specifications in the approved sequence. Obtain owner review of A16 Content Studio separately. Obtain owner review of A16 Content Studio separately. A12 Leads remains deferred pending legal/compliance approval.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -152,3 +152,4 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-04 | Recorded owner approval of API Conventions (14 implementation tasks and 26 acceptance tests remain Not Started/Not Run). Added Testing Strategy draft covering test layers, synthetic fixtures, financial/data integrity, authorization/privacy, security, accessibility/localization, CI/release gates, flaky tests, coverage and 16 tasks/30 acceptance tests; owner review pending. Advanced shared-standards focus to Testing Strategy. No application code or tests have started. |
 
 | 2026-11-04 | Recorded owner approval of Testing Strategy (16 implementation tasks and 30 acceptance tests remain Not Started/Not Run; 80% core domain/service line-coverage target is an initial target subject to baseline review). Started Phase 3 public frontend specifications and added F01 Homepage and Intent Search draft with 12 tasks and 24 acceptance tests; owner review pending. No application code or tests have started. |
+| 2026-11-04 | Recorded owner approval of F01 Homepage and Intent Search with English and Hindi (Devanagari) as the only supported languages; Romanized Hindi/Hinglish excluded. Amended A09 language scope to match. Advanced Phase 3 focus to F02 All Loan Categories. Corrected Design System tracker count to 14 tasks. Testing Strategy marked Owner Approved. No application implementation or tests have started. |
