@@ -1,6 +1,6 @@
 # F01 — Homepage and Intent Search Specification
 
-**Status:** Draft — Owner Review Pending  
+**Status:** Owner Approved  
 **Last updated:** 2026-11-04  
 **Route:** `/`  
 **Priority:** P0  
@@ -17,7 +17,7 @@ Examples of supported intent:
 - “Need a personal loan for medical expenses.”
 - “Loan against property for business.”
 - “Home loan with low processing fees.”
-- Hindi and Romanized/Hinglish equivalents, such as “ghar kharidne ke liye loan” and “mujhe personal loan chahiye”.
+- Hindi equivalents in Devanagari script, such as “मुझे घर खरीदने के लिए लोन चाहिए” and “मुझे व्यक्तिगत ऋण चाहिए”.
 
 The search box is for discovery only. It is not a lead form, application, eligibility decision, or promise of lender approval.
 
@@ -60,14 +60,14 @@ Avoid decorative media that delays the search field or causes layout shift. Use 
 ### Input
 - One primary free-text search field with a persistent accessible label, e.g. “What kind of loan are you looking for?”
 - Placeholder is an example only and never the sole label.
-- Support English, Hindi, Romanized Hindi and Hinglish input.
+- Support English and Hindi (Devanagari) input only.
 - Submit by Enter or an explicitly labelled search button; keyboard and screen-reader operation required.
 - Preserve the entered query when navigating to results and when returning to the homepage.
 - Do not require sign-in or personal details to search.
 
 ### Query processing
 - Normalize whitespace and safe Unicode forms while preserving the original display query as needed for the current interaction.
-- Match approved intent phrases, synonyms and category mappings using the approved search architecture (PostgreSQL full-text search plus pg_trgm as specified by A09), with locale-aware tokenization and conservative transliteration support.
+- Match approved intent phrases, synonyms and category mappings using the approved search architecture (PostgreSQL full-text search plus pg_trgm as specified by A09), with locale-aware English and Hindi tokenization.
 - Distinguish a user's stated purpose from a loan category. Example: “buy a house” is an intent that may map to home-loan products; it is not itself a category.
 - Search only published, active and eligible catalogue records. Exclude drafts, withdrawn/expired records and unapproved content.
 - Respect product applicability, effective dates and data freshness states. Stale/unverified material facts must not be represented as verified current terms.
@@ -114,7 +114,7 @@ Search uses A09 intent mappings and canonical A03 categories; result eligibility
 - English (India) is the default locale; Hindi (India) is supported.
 - All visible strings use localization message keys.
 - Hindi translations of financial, legal and consumer-safety statements require native review.
-- Search examples and suggestions must be natural in Hindi and Romanized Hindi/Hinglish, not literal transliterations that change meaning.
+- Search examples and suggestions must be natural, native-reviewed English and Hindi (Devanagari).
 - Preserve query text as entered for the current search flow; avoid storing raw queries by default.
 - Display INR with Indian grouping and dates in clear India-friendly formats when needed.
 - Ensure Devanagari conjuncts, matras, mixed Latin/Devanagari text and font fallbacks do not clip.
@@ -203,7 +203,7 @@ All tests begin as **Not Run**.
 | F01-T01 | Homepage renders semantic structure with one clear H1 and accessible primary navigation. |
 | F01-T02 | Search has a persistent programmatic label and works by keyboard and screen reader. |
 | F01-T03 | Empty/whitespace query is not submitted and receives accessible guidance. |
-| F01-T04 | English, Hindi, Romanized Hindi and Hinglish examples map only to approved intent/category records. |
+| F01-T04 | English and Hindi (Devanagari) examples map only to approved intent/category records. |
 | F01-T05 | User intent is not conflated with the canonical loan category. |
 | F01-T06 | Ambiguous queries offer transparent interpretations; low-confidence queries do not fabricate results. |
 | F01-T07 | Search navigation encodes the query safely and preserves it for F24 without exposing sensitive fields. |
@@ -228,19 +228,19 @@ All tests begin as **Not Run**.
 ## 14. Owner review decisions
 
 Please approve or revise:
-1. Homepage section order and the search-first mobile experience.
-2. Intent search as anonymous discovery only, with no personal/financial profile fields.
-3. English, Hindi, Romanized Hindi and Hinglish input, with conservative ambiguity handling.
-4. Search result routing to F24 and use of canonical A03 categories/A09 intent mappings.
-5. Published categories and A11 guides only; no unverified product/rate claims or invented trust metrics.
-6. No raw query retention by default; analytics remains blocked pending privacy review.
-7. No lead capture, customer PII, document upload or lender application flow.
-8. Proposed helper warning and informational/lender-decision disclaimer.
-9. SEO/indexing and structured-data restrictions as documented.
+1. Homepage section order and the search-first mobile experience — approved.
+2. Intent search as anonymous discovery only, with no personal/financial profile fields — approved.
+3. English and Hindi (Devanagari) input only, with conservative ambiguity handling.
+4. Search result routing to F24 and use of canonical A03 categories/A09 intent mappings — approved.
+5. Published categories and A11 guides only; no unverified product/rate claims or invented trust metrics — approved.
+6. No raw query retention by default; analytics remains blocked pending privacy review — approved.
+7. No lead capture, customer PII, document upload or lender application flow — approved.
+8. Proposed helper warning and informational/lender-decision disclaimer — approved.
+9. SEO/indexing and structured-data restrictions as documented — approved.
 
 ## 15. Approval and implementation record
 
-- **Owner decision:** Pending.
+- **Owner decision:** Approved on 2026-11-04, with English and Hindi (Devanagari) as the only supported languages.
 - **Implementation:** Not Started.
 - **Testing:** All 24 acceptance tests remain Not Run.
-- **Boundary:** Approval authorizes this page specification for planning only. Feature coding requires explicit owner approval and remaining technical/security/legal dependencies; it does not authorize lead capture, customer PII processing or production launch.
+- **Boundary:** Approval authorizes this page specification for planning only. Feature coding requires the remaining technical/security/legal dependencies to pass; it does not authorize lead capture, customer PII processing or production launch.
