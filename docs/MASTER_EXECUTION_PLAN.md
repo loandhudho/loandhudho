@@ -57,7 +57,7 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | Order | Page | Specification | Status |
 |---:|---|---|---|
 | F01 | Homepage and intent search | [F01-homepage-intent-search.md](./frontend/F01-homepage-intent-search.md) | Owner Approved |
-| F02 | All loan categories | [loans-index.md](./frontend/loans-index.md) | Not Started |
+| F02 | All loan categories | [loans-index.md](./frontend/loans-index.md) | Draft — Owner Review Pending |
 | F03 | Loan category detail | [loan-category.md](./frontend/loan-category.md) | Not Started |
 | F04 | Loan product detail | [loan-product-detail.md](./frontend/loan-product-detail.md) | Not Started |
 | F05 | Institution directory | [institutions-index.md](./frontend/institutions-index.md) | Not Started |
@@ -153,3 +153,5 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 | 2026-11-04 | Recorded owner approval of Testing Strategy (16 implementation tasks and 30 acceptance tests remain Not Started/Not Run; 80% core domain/service line-coverage target is an initial target subject to baseline review). Started Phase 3 public frontend specifications and added F01 Homepage and Intent Search draft with 12 tasks and 24 acceptance tests; owner review pending. No application code or tests have started. |
 | 2026-11-04 | Recorded owner approval of F01 Homepage and Intent Search with English and Hindi (Devanagari) as the only supported languages; Romanized Hindi/Hinglish excluded. Amended A09 language scope to match. Advanced Phase 3 focus to F02 All Loan Categories. Corrected Design System tracker count to 14 tasks. Testing Strategy marked Owner Approved. No application implementation or tests have started. |
+
+| 2026-11-04 | Drafted F02 All Loan Categories with 11 implementation tasks and 22 acceptance tests; owner review pending. The page uses canonical A03 categories, supports English and Hindi (Devanagari) only, and excludes lead/application functionality. No implementation or tests have started. |
