@@ -1,6 +1,6 @@
 # LoanDhudho Design System Standard
 
-**Status:** Draft — Owner Review Pending  
+**Status:** Owner Approved — implementation dependencies remain  
 **Last updated:** 2026-11-02  
 **Applies to:** Public website, authenticated admin application, shared components and design tokens.
 
@@ -269,7 +269,7 @@ Please approve or revise these proposed foundations:
 
 ## 16. Approval and implementation record
 
-- **Owner decision:** Pending.
+- **Owner decision:** Approved as documented on 2026-11-04.
 - **Implementation:** Not started.
 - **Testing:** All 24 acceptance tests remain Not Run.
 - Approval of this standard will authorize detailed component/token implementation planning only; it does not authorize feature coding that is blocked by other shared standards, page approvals, authentication/security decisions or legal/compliance gates.
