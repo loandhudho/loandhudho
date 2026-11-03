@@ -20,7 +20,7 @@ A page is not ready for feature implementation until its specification is comple
 | 0 | Governance and discovery | Approve global rules, sitemap, roles, data principles, compliance boundaries and delivery workflow. | In Progress |
 | 1 | Admin page analysis/specifications | Every MVP admin page and shared admin workflow documented and approved. | Not Started |
 | 2 | Admin foundation and implementation | Auth, RBAC, shell, audit foundation and approved admin pages implemented/tested. | Not Started |
-| 3 | Public frontend specifications | Public pages and shared journeys documented and approved page by page. | Not Started |
+| 3 | Public frontend specifications | Public pages and shared journeys documented and approved page by page. | In Progress |
 | 4 | Public frontend implementation | Approved public pages, search, comparison and calculators implemented/tested. | Not Started |
 | 5 | Integration and controlled launch | Data verification, legal review, security, accessibility, SEO and release checks complete. | Not Started |
 | 6 | Post-launch improvement | Priorities based on measured search, conversion, freshness and support data. | Not Started |
@@ -56,7 +56,7 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 | Order | Page | Specification | Status |
 |---:|---|---|---|
-| F01 | Homepage and intent search | [homepage.md](./frontend/homepage.md) | Not Started |
+| F01 | Homepage and intent search | [F01-homepage-intent-search.md](./frontend/F01-homepage-intent-search.md) | Draft — Owner Review Pending |
 | F02 | All loan categories | [loans-index.md](./frontend/loans-index.md) | Not Started |
 | F03 | Loan category detail | [loan-category.md](./frontend/loan-category.md) | Not Started |
 | F04 | Loan product detail | [loan-product-detail.md](./frontend/loan-product-detail.md) | Not Started |
@@ -102,9 +102,9 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 
 ## 7. Current focus
 
-**Active focus:** Shared standards — Testing Strategy  
-**Current status:** API Conventions was owner-approved on 2026-11-04; its 14 implementation tasks and 26 acceptance tests remain Not Started/Not Run. Testing Strategy is documented as a draft for owner review with 16 implementation tasks and 30 acceptance tests, all Not Started/Not Run. Design System remains owner-approved with 13 implementation tasks and 24 acceptance tests Not Started/Not Run. Data Governance remains owner-approved with 12 implementation tasks and 28 acceptance tests Not Started/Not Run; approval does not activate lead/customer PII or bypass legal/security gates. Admin Shell remains owner-approved with 10 implementation tasks and 20 acceptance tests Not Started/Not Run. No application implementation or test execution has started.  
-**Next action:** Obtain owner review of Testing Strategy. After approval, begin page-by-page frontend specifications with F01 Homepage and Intent Search, subject to remaining implementation dependencies. Obtain owner review of A16 Content Studio separately. A12 Leads remains deferred pending legal/compliance approval.
+**Active focus:** Public frontend specifications — F01 Homepage and Intent Search  
+**Current status:** Testing Strategy was owner-approved on 2026-11-04, including the initial 80% core domain/service line-coverage target subject to baseline review; its 16 implementation tasks and 30 acceptance tests remain Not Started/Not Run. API Conventions remains owner-approved with 14 tasks and 26 tests Not Started/Not Run. Design System remains owner-approved with 13 tasks and 24 tests Not Started/Not Run. Data Governance remains owner-approved with 12 tasks and 28 tests Not Started/Not Run; approval does not activate lead/customer PII or bypass legal/security gates. Admin Shell remains owner-approved with 10 tasks and 20 tests Not Started/Not Run. F01 Homepage and Intent Search specification has been drafted for owner review with 12 implementation tasks and 24 acceptance tests, all Not Started/Not Run. No application implementation or test execution has started.  
+**Next action:** Obtain owner review of F01 Homepage and Intent Search. Continue page-by-page frontend specifications in the approved sequence after F01 approval. Obtain owner review of A16 Content Studio separately. A12 Leads remains deferred pending legal/compliance approval.
 
 **Product objective:** Broad verified bank/NBFC coverage; lender-specific products, rates, fees, eligibility and offers; like-for-like comparison; calculators; and lead capture only after legal/compliance approval.  
 **Coding gate:** Closed until the relevant shared standards (including authorization and data governance) and page-specific dependencies are approved.
@@ -151,4 +151,4 @@ Frontend analysis starts after the admin analysis sequence unless the owner expl
 | 2026-11-04 | Recorded owner approval of the Design System standard (14 implementation tasks and 24 acceptance tests remain Not Started/Not Run). Added API Conventions standard draft with route/versioning, DTO/error contracts, authorization, pagination, concurrency/idempotency, rate limits, audit/privacy, caching, imports/exports, 14 tasks and 26 acceptance tests; owner review pending. |
 | 2026-11-04 | Recorded owner approval of API Conventions (14 implementation tasks and 26 acceptance tests remain Not Started/Not Run). Added Testing Strategy draft covering test layers, synthetic fixtures, financial/data integrity, authorization/privacy, security, accessibility/localization, CI/release gates, flaky tests, coverage and 16 tasks/30 acceptance tests; owner review pending. Advanced shared-standards focus to Testing Strategy. No application code or tests have started. |
 
-| 2026-11-04 | Recorded owner approval of API Conventions (14 implementation tasks and 26 acceptance tests remain Not Started/Not Run). Added Testing Strategy draft with 14 implementation tasks and 30 acceptance tests; owner review pending. No code or tests have started. |
+| 2026-11-04 | Recorded owner approval of Testing Strategy (16 implementation tasks and 30 acceptance tests remain Not Started/Not Run; 80% core domain/service line-coverage target is an initial target subject to baseline review). Started Phase 3 public frontend specifications and added F01 Homepage and Intent Search draft with 12 tasks and 24 acceptance tests; owner review pending. No application code or tests have started. |
